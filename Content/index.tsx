@@ -11,31 +11,31 @@ import {
   ACCENT
 } from './Prose';
 
-import IntroductionPage, { introductionToc } from './Content/Introduction';
-import FirstQueryPage, { firstQueryToc } from './Content/FirstQuery';
-import ReadingAnswersPage, { readingAnswersToc } from './Content/ReadingAnswers';
-import ScopePage, { scopeToc } from './Content/Scope';
+import IntroductionPage, { introductionToc } from './Introduction';
+import FirstQueryPage, { firstQueryToc } from './FirstQuery';
+import ReadingAnswersPage, { readingAnswersToc } from './ReadingAnswers';
+import ScopePage, { scopeToc } from './Scope';
 
-import CapabilitiesOverviewPage, { capabilitiesOverviewToc } from './Content/CapabilitiesOverview';
-import FacilitySitingPage, { facilitySitingToc } from './Content/FacilitySiting';
-import RegionalSupplyPage, { regionalSupplyToc } from './Content/RegionalSupply';
-import FireTradeoffsPage, { fireTradeoffsToc } from './Content/FireTradeoffs';
-import MultiYearPage, { multiYearToc } from './Content/MultiYear';
-import ComparingLocationsPage, { comparingLocationsToc } from './Content/ComparingLocations';
+import CapabilitiesOverviewPage, { capabilitiesOverviewToc } from './CapabilitiesOverview';
+import FacilitySitingPage, { facilitySitingToc } from './FacilitySiting';
+import RegionalSupplyPage, { regionalSupplyToc } from './RegionalSupply';
+import FireTradeoffsPage, { fireTradeoffsToc } from './FireTradeoffs';
+import MultiYearPage, { multiYearToc } from './MultiYear';
+import ComparingLocationsPage, { comparingLocationsToc } from './ComparingLocations';
 
-import UnderstandingCostPage, { understandingCostToc } from './Content/UnderstandingCost';
-import UnderstandingSupplyPage, { understandingSupplyToc } from './Content/UnderstandingSupply';
-import UnderstandingFirePage, { understandingFireToc } from './Content/UnderstandingFire';
-import UnderstandingTransportPage, { understandingTransportToc } from './Content/UnderstandingTransport';
+import UnderstandingCostPage, { understandingCostToc } from './UnderstandingCost';
+import UnderstandingSupplyPage, { understandingSupplyToc } from './UnderstandingSupply';
+import UnderstandingFirePage, { understandingFireToc } from './UnderstandingFire';
+import UnderstandingTransportPage, { understandingTransportToc } from './UnderstandingTransport';
 
-import MethodologyOverviewPage, { methodologyOverviewToc } from './Content/MethodologyOverview';
-import HarvestCostMethodPage, { harvestCostMethodToc } from './Content/HarvestCostMethod';
-import TransportMethodPage, { transportMethodToc } from './Content/TransportMethod';
-import FireMethodPage, { fireMethodToc } from './Content/FireMethod';
+import MethodologyOverviewPage, { methodologyOverviewToc } from './MethodologyOverview';
+import HarvestCostMethodPage, { harvestCostMethodToc } from './HarvestCostMethod';
+import TransportMethodPage, { transportMethodToc } from './TransportMethod';
+import FireMethodPage, { fireMethodToc } from './FireMethod';
 
-import GlossaryPage, { glossaryToc } from './Content/Glossary';
-import FAQPage, { faqToc } from './Content/Faq';
-import CitingFredPage, { citingFredToc } from './Content/CitingFred';
+import GlossaryPage, { glossaryToc } from './Glossary';
+import FAQPage, { faqToc } from './Faq';
+import CitingFredPage, { citingFredToc } from './CitingFred';
 
 /* ================================================================== */
 /*  PAGE REGISTRY                                                      */

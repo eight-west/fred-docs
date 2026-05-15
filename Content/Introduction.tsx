@@ -1,17 +1,11 @@
-import {
-  Heading,
-  InlineCode,
-  CodeBlock,
-  Callout,
-  PageTitle
-} from '../Prose';
+import { Heading, InlineCode, Callout, PageTitle } from '../Prose';
 
 export const introductionToc = [
-  { id: 'what-is-fred', label: 'What is FRED' },
-  { id: 'who-this-is-for', label: 'Who this is for' },
-  { id: 'how-it-works', label: 'How it works' },
-  { id: 'first-query', label: 'Your first query' },
-  { id: 'next-steps', label: 'Next steps' }
+  { id: 'what-fred-does', label: 'What FRED does' },
+  { id: 'who-its-for', label: "Who it's for" },
+  { id: 'a-typical-question', label: 'A typical question' },
+  { id: 'what-makes-fred-different', label: 'What makes FRED different' },
+  { id: 'where-to-go-next', label: 'Where to go next' }
 ];
 
 export default function IntroductionPage() {
@@ -20,153 +14,138 @@ export default function IntroductionPage() {
       <PageTitle
         eyebrow='GETTING STARTED'
         title='Introduction'
-        lede="FRED is a decision-support system for forest biomass procurement in California. This guide explains what FRED does, who it's for, and how to ask your first question."
+        lede="FRED is a conversational decision-support system for forest biomass procurement in California. Ask it a question in plain English, get back a defensible recommendation grounded in spatial data."
       />
 
-      <Heading id='what-is-fred' level={2}>
-        What is FRED
+      <Heading id='what-fred-does' level={2}>
+        What FRED does
       </Heading>
       <p>
-        FRED is the conversational interface to a statewide spatial
-        decision-support system for forest biomass procurement. It composes
-        three machine-learning prediction layers, a harvest cost surrogate, a
-        transport circuity model, and a wildfire burn probability raster,
-        through an agentic architecture called{' '}
-        <InlineCode>Compositional Spatial RAG</InlineCode> (CS-RAG).
+        Forest biomass procurement is a high-stakes spatial decision. Where do
+        you site a facility? How much biomass can you actually source within
+        an economic haul radius? What does it cost per ton once you account
+        for terrain, transport, and harvest system? How does the answer
+        change if you also want to prioritize wildfire risk reduction? How
+        does it evolve over a 10-year operating horizon as nearby supply
+        depletes?
       </p>
       <p>
-        Under the hood, FRED indexes 2.1 million harvest clusters across
-        California using PostGIS with H3 hexagonal binning. A 9-tool ReAct-style
-        agent orchestrates queries against the prediction layers, with
-        deterministic caching at the tool level for sub-second response times.
+        Each of these questions has historically required a specialist with a
+        seat license to FRCS, access to GIS data, and a lot of patience.
+        FRED collapses that workflow into a conversation.
+      </p>
+      <p>
+        You ask FRED a question. It reasons about what data it needs, pulls
+        the right spatial layers, runs the necessary calculations, and
+        returns an answer grounded in the same models published in
+        peer-reviewed research. The answer comes back as a recommendation
+        card with a map, a supply curve, and a written justification you
+        can act on.
       </p>
 
-      <Callout kind='info'>
-        FRED is currently scoped to California. The CS-RAG architecture is
-        region-agnostic and can be extended with equivalent regional datasets.
-      </Callout>
-
-      <Heading id='who-this-is-for' level={2}>
-        Who this is for
+      <Heading id='who-its-for' level={2}>
+        Who it's for
       </Heading>
       <p>
-        FRED is designed for three audiences with overlapping but distinct needs:
+        FRED is designed for three audiences with overlapping but distinct
+        needs:
       </p>
       <ul>
         <li>
-          <strong>Biomass operators</strong> evaluating procurement feasibility
-          for candidate facility locations. FRED returns supply curves, cost
-          projections, and fire-risk-weighted alternatives without requiring you
-          to run FRCS yourself.
+          <strong>Biomass operators</strong> evaluating where to site a new
+          facility or whether an existing site has enough sustainable supply.
+          FRED returns the answer in minutes instead of weeks.
         </li>
         <li>
-          <strong>Researchers</strong> who need reproducible parameterized runs
-          against the same prediction layers powering the chat interface. Direct
-          tool endpoints are available for scripted workflows.
+          <strong>Researchers</strong> studying biomass economics, fuels
+          treatment, or fire risk reduction. FRED gives reproducible numbers
+          against published prediction layers.
         </li>
         <li>
           <strong>Policy analysts</strong> quantifying the tradeoff between
-          procurement cost and wildfire risk reduction at the watershed, county,
-          or statewide level.
+          procurement cost and wildfire risk reduction. FRED's
+          Pareto-weighted framework was designed for exactly this question.
         </li>
       </ul>
 
-      <Heading id='how-it-works' level={2}>
-        How it works
-      </Heading>
-      <p>A typical FRED query flows through four stages:</p>
-      <ol>
-        <li>
-          <strong>Intent parsing.</strong> The agent extracts location,
-          capacity, and weighting preferences from natural language.
-        </li>
-        <li>
-          <strong>Spatial retrieval.</strong> Relevant cluster supply vectors
-          are pulled from PostGIS materialized views, filtered by radius.
-        </li>
-        <li>
-          <strong>Layer composition.</strong> Harvest cost, transport circuity,
-          and fire probability layers are joined per-cluster and weighted
-          according to the user's alpha.
-        </li>
-        <li>
-          <strong>Synthesis.</strong> The agent returns a procurement
-          recommendation with a multi-year supply curve and LCOE projection.
-        </li>
-      </ol>
-
-      <Heading id='first-query' level={3}>
-        Your first query
+      <Heading id='a-typical-question' level={2}>
+        A typical question
       </Heading>
       <p>
-        The fastest way to see FRED in action is the chat interface at{' '}
-        <a href='https://biofred.us/chat'>biofred.us/chat</a>. For programmatic
-        access, send a query directly to the agent endpoint:
+        FRED is most useful for questions that combine location, scale, and a
+        preference. For example:
       </p>
-
-      <CodeBlock
-        lang='bash'
-        code={`curl -X POST https://api.biofred.us/agent \\
-  -H "Content-Type: application/json" \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -d '{
-    "query": "Find biomass for a 20MW facility near Redding. Prioritize fire risk.",
-    "session_id": "demo"
-  }'`}
-      />
-
-      <p>
-        The response includes both the natural-language recommendation and the
-        structured spatial result:
-      </p>
-
-      <CodeBlock
-        lang='json'
-        code={`{
-  "recommendation": "Site near Burney, CA. Supplies 42.3k BDT/yr at $87.40/BDT with 5.8x fire-risk leverage at alpha=0.05.",
-  "facility": {
-    "lat": 40.589,
-    "lng": -121.658,
-    "capacity_mw": 20
-  },
-  "supply_curve": {
-    "total_bdt_per_year": 42300,
-    "lcoe_per_bdt": 87.40,
-    "radius_km": 43,
-    "alpha": 0.05
-  },
-  "tool_calls": [
-    {"name": "geocode_location", "ms": 142},
-    {"name": "retrieve_cluster_supply", "ms": 387},
-    {"name": "compute_fire_pareto", "ms": 201},
-    {"name": "project_multi_year", "ms": 154}
-  ]
-}`}
-      />
-
-      <Callout kind='tip'>
-        Use <InlineCode>session_id</InlineCode> to maintain conversational
-        context across turns. Sessions are stored in Redis with a 24-hour TTL.
+      <Callout kind='info'>
+        <em>"Where should I site a 20MW biomass facility near Redding if I
+        want to prioritize fire risk reduction?"</em>
       </Callout>
+      <p>
+        FRED will geocode Redding, find candidate cluster supply within a
+        defensible radius, evaluate the cost-vs-fire tradeoff across that
+        supply, and return a specific recommended location with the
+        full Pareto curve. A typical answer takes about 3 to 5 seconds.
+      </p>
+      <p>
+        You can keep going from there. Follow-ups like <em>"what if I push
+        the radius out to 60km?"</em> or <em>"how does the cost change over
+        10 years?"</em> work without restating the original context.
+        FRED remembers the conversation.
+      </p>
 
-      <Heading id='next-steps' level={2}>
-        Next steps
+      <Heading id='what-makes-fred-different' level={2}>
+        What makes FRED different
       </Heading>
-      <p>You're ready to go deeper. We recommend:</p>
+      <p>
+        Three things, mainly.
+      </p>
+      <p>
+        <strong>It thinks in spatial layers, not text.</strong> Most AI
+        assistants retrieve text passages from documents and reason over
+        them. FRED retrieves machine-learning predictions about cost,
+        transport, and fire risk, then composes them at query time. The
+        architecture, <InlineCode>Compositional Spatial RAG</InlineCode>, is
+        purpose-built for this kind of question.
+      </p>
+      <p>
+        <strong>Every answer is traceable.</strong> When FRED tells you a
+        facility should cost $87.40 per BDT, you can see exactly which
+        clusters contributed, what the surrogate predicted for each, what
+        the haul distances were, and how the fire weighting shifted the
+        result. There is no opaque embedding step.
+      </p>
+      <p>
+        <strong>The underlying research is published.</strong> FRED is built
+        on three peer-reviewed contributions: a learned harvest cost
+        surrogate validated against FRCS, an empirical transport circuity
+        model derived from 445,000 truck-profile routes, and a fire-aware
+        Pareto framework built over USDA's burn probability data. See the{' '}
+        <a href='#methodology-overview'>Methodology</a> section for the
+        details.
+      </p>
+
+      <Heading id='where-to-go-next' level={2}>
+        Where to go next
+      </Heading>
+      <p>If you want to get started right away:</p>
       <ul>
         <li>
-          Read <a href='#quickstart'>Quickstart</a> for a self-hosted walkthrough.
+          Read <a href='#first-query'>Your first query</a> to learn how to
+          phrase questions effectively.
         </li>
         <li>
-          Read <a href='#concepts'>Concepts</a> to understand the spatial
-          prediction layer taxonomy.
+          Read <a href='#reading-answers'>Reading FRED's answers</a> to
+          understand what each part of the response means.
+        </li>
+      </ul>
+      <p>If you want to understand the system first:</p>
+      <ul>
+        <li>
+          <a href='#capabilities-overview'>What FRED can do</a> walks through
+          the kinds of questions FRED handles well.
         </li>
         <li>
-          See <a href='#cs-rag-overview'>CS-RAG architecture</a> for the full
-          agent design.
-        </li>
-        <li>
-          Try the <a href='#endpoints'>API reference</a> for programmatic access.
+          <a href='#methodology-overview'>Methodology</a> covers the research
+          behind the predictions.
         </li>
       </ul>
     </>
