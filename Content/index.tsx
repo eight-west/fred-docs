@@ -9,27 +9,43 @@ import {
   TEXT_SECONDARY,
   TEXT_TERTIARY,
   ACCENT
-} from './Prose';
+} from './Proses';
 
 import IntroductionPage, { introductionToc } from './Introduction';
 import FirstQueryPage, { firstQueryToc } from './FirstQuery';
-import ReadingAnswersPage, { readingAnswersToc } from './ReadingAnswers';
+import ReadingAnswersPage, { readingAnswersToc } from './Answers';
 import ScopePage, { scopeToc } from './Scope';
 
-import CapabilitiesOverviewPage, { capabilitiesOverviewToc } from './CapabilitiesOverview';
+import CapabilitiesOverviewPage, {
+  capabilitiesOverviewToc
+} from './CapabilitiesOverview';
 import FacilitySitingPage, { facilitySitingToc } from './FacilitySiting';
 import RegionalSupplyPage, { regionalSupplyToc } from './RegionalSupply';
 import FireTradeoffsPage, { fireTradeoffsToc } from './FireTradeoffs';
 import MultiYearPage, { multiYearToc } from './MultiYear';
-import ComparingLocationsPage, { comparingLocationsToc } from './ComparingLocations';
+import ComparingLocationsPage, {
+  comparingLocationsToc
+} from './ComparingLocations';
 
-import UnderstandingCostPage, { understandingCostToc } from './UnderstandingCost';
-import UnderstandingSupplyPage, { understandingSupplyToc } from './UnderstandingSupply';
-import UnderstandingFirePage, { understandingFireToc } from './UnderstandingFire';
-import UnderstandingTransportPage, { understandingTransportToc } from './UnderstandingTransport';
+import UnderstandingCostPage, {
+  understandingCostToc
+} from './UnderstandingCost';
+import UnderstandingSupplyPage, {
+  understandingSupplyToc
+} from './UnderstandingSupply';
+import UnderstandingFirePage, {
+  understandingFireToc
+} from './UnderstandingFire';
+import UnderstandingTransportPage, {
+  understandingTransportToc
+} from './UnderstandingTransport';
 
-import MethodologyOverviewPage, { methodologyOverviewToc } from './MethodologyOverview';
-import HarvestCostMethodPage, { harvestCostMethodToc } from './HarvestCostMethod';
+import MethodologyOverviewPage, {
+  methodologyOverviewToc
+} from './MethodologyOverview';
+import HarvestCostMethodPage, {
+  harvestCostMethodToc
+} from './HarvestCostMethod';
 import TransportMethodPage, { transportMethodToc } from './TransportMethod';
 import FireMethodPage, { fireMethodToc } from './FireMethod';
 
@@ -51,35 +67,161 @@ interface PageEntry {
 
 const PAGES: PageEntry[] = [
   /* Getting started: what FRED is, how to use it, what to expect */
-  { slug: 'introduction', label: 'Introduction', section: 'Getting started', Component: IntroductionPage, toc: introductionToc },
-  { slug: 'first-query', label: 'Your first query', section: 'Getting started', Component: FirstQueryPage, toc: firstQueryToc },
-  { slug: 'reading-answers', label: "Reading FRED's answers", section: 'Getting started', Component: ReadingAnswersPage, toc: readingAnswersToc },
-  { slug: 'scope', label: "What FRED can and can't do", section: 'Getting started', Component: ScopePage, toc: scopeToc },
+  {
+    slug: 'introduction',
+    label: 'Introduction',
+    section: 'Getting started',
+    Component: IntroductionPage,
+    toc: introductionToc
+  },
+  {
+    slug: 'first-query',
+    label: 'Your first query',
+    section: 'Getting started',
+    Component: FirstQueryPage,
+    toc: firstQueryToc
+  },
+  {
+    slug: 'reading-answers',
+    label: "Reading FRED's answers",
+    section: 'Getting started',
+    Component: ReadingAnswersPage,
+    toc: readingAnswersToc
+  },
+  {
+    slug: 'scope',
+    label: "What FRED can and can't do",
+    section: 'Getting started',
+    Component: ScopePage,
+    toc: scopeToc
+  },
 
   /* Capabilities: the kinds of queries FRED handles */
-  { slug: 'capabilities-overview', label: 'Overview', section: 'Capabilities', Component: CapabilitiesOverviewPage, toc: capabilitiesOverviewToc },
-  { slug: 'facility-siting', label: 'Facility siting', section: 'Capabilities', Component: FacilitySitingPage, toc: facilitySitingToc },
-  { slug: 'regional-supply', label: 'Regional supply analysis', section: 'Capabilities', Component: RegionalSupplyPage, toc: regionalSupplyToc },
-  { slug: 'fire-tradeoffs', label: 'Fire-risk tradeoffs', section: 'Capabilities', Component: FireTradeoffsPage, toc: fireTradeoffsToc },
-  { slug: 'multi-year', label: 'Multi-year planning', section: 'Capabilities', Component: MultiYearPage, toc: multiYearToc },
-  { slug: 'comparing-locations', label: 'Comparing locations', section: 'Capabilities', Component: ComparingLocationsPage, toc: comparingLocationsToc },
+  {
+    slug: 'capabilities-overview',
+    label: 'Overview',
+    section: 'Capabilities',
+    Component: CapabilitiesOverviewPage,
+    toc: capabilitiesOverviewToc
+  },
+  {
+    slug: 'facility-siting',
+    label: 'Facility siting',
+    section: 'Capabilities',
+    Component: FacilitySitingPage,
+    toc: facilitySitingToc
+  },
+  {
+    slug: 'regional-supply',
+    label: 'Regional supply analysis',
+    section: 'Capabilities',
+    Component: RegionalSupplyPage,
+    toc: regionalSupplyToc
+  },
+  {
+    slug: 'fire-tradeoffs',
+    label: 'Fire-risk tradeoffs',
+    section: 'Capabilities',
+    Component: FireTradeoffsPage,
+    toc: fireTradeoffsToc
+  },
+  {
+    slug: 'multi-year',
+    label: 'Multi-year planning',
+    section: 'Capabilities',
+    Component: MultiYearPage,
+    toc: multiYearToc
+  },
+  {
+    slug: 'comparing-locations',
+    label: 'Comparing locations',
+    section: 'Capabilities',
+    Component: ComparingLocationsPage,
+    toc: comparingLocationsToc
+  },
 
   /* Understanding the numbers: interpreting outputs */
-  { slug: 'understanding-cost', label: 'Cost: $/BDT and LCOE', section: 'Understanding the numbers', Component: UnderstandingCostPage, toc: understandingCostToc },
-  { slug: 'understanding-supply', label: 'Supply: BDT/year', section: 'Understanding the numbers', Component: UnderstandingSupplyPage, toc: understandingSupplyToc },
-  { slug: 'understanding-fire', label: 'Fire risk and alpha', section: 'Understanding the numbers', Component: UnderstandingFirePage, toc: understandingFireToc },
-  { slug: 'understanding-transport', label: 'Transport circuity', section: 'Understanding the numbers', Component: UnderstandingTransportPage, toc: understandingTransportToc },
+  {
+    slug: 'understanding-cost',
+    label: 'Cost: $/BDT and LCOE',
+    section: 'Understanding the numbers',
+    Component: UnderstandingCostPage,
+    toc: understandingCostToc
+  },
+  {
+    slug: 'understanding-supply',
+    label: 'Supply: BDT/year',
+    section: 'Understanding the numbers',
+    Component: UnderstandingSupplyPage,
+    toc: understandingSupplyToc
+  },
+  {
+    slug: 'understanding-fire',
+    label: 'Fire risk and alpha',
+    section: 'Understanding the numbers',
+    Component: UnderstandingFirePage,
+    toc: understandingFireToc
+  },
+  {
+    slug: 'understanding-transport',
+    label: 'Transport circuity',
+    section: 'Understanding the numbers',
+    Component: UnderstandingTransportPage,
+    toc: understandingTransportToc
+  },
 
   /* Methodology: the research behind the predictions */
-  { slug: 'methodology-overview', label: 'Overview', section: 'Methodology', Component: MethodologyOverviewPage, toc: methodologyOverviewToc },
-  { slug: 'harvest-cost-method', label: 'Harvest cost surrogate', section: 'Methodology', Component: HarvestCostMethodPage, toc: harvestCostMethodToc },
-  { slug: 'transport-method', label: 'Transport circuity model', section: 'Methodology', Component: TransportMethodPage, toc: transportMethodToc },
-  { slug: 'fire-method', label: 'Fire-aware Pareto framework', section: 'Methodology', Component: FireMethodPage, toc: fireMethodToc },
+  {
+    slug: 'methodology-overview',
+    label: 'Overview',
+    section: 'Methodology',
+    Component: MethodologyOverviewPage,
+    toc: methodologyOverviewToc
+  },
+  {
+    slug: 'harvest-cost-method',
+    label: 'Harvest cost surrogate',
+    section: 'Methodology',
+    Component: HarvestCostMethodPage,
+    toc: harvestCostMethodToc
+  },
+  {
+    slug: 'transport-method',
+    label: 'Transport circuity model',
+    section: 'Methodology',
+    Component: TransportMethodPage,
+    toc: transportMethodToc
+  },
+  {
+    slug: 'fire-method',
+    label: 'Fire-aware Pareto framework',
+    section: 'Methodology',
+    Component: FireMethodPage,
+    toc: fireMethodToc
+  },
 
   /* Reference: glossary, FAQ, citations */
-  { slug: 'glossary', label: 'Glossary', section: 'Reference', Component: GlossaryPage, toc: glossaryToc },
-  { slug: 'faq', label: 'FAQ', section: 'Reference', Component: FAQPage, toc: faqToc },
-  { slug: 'citing-fred', label: 'Citing FRED', section: 'Reference', Component: CitingFredPage, toc: citingFredToc }
+  {
+    slug: 'glossary',
+    label: 'Glossary',
+    section: 'Reference',
+    Component: GlossaryPage,
+    toc: glossaryToc
+  },
+  {
+    slug: 'faq',
+    label: 'FAQ',
+    section: 'Reference',
+    Component: FAQPage,
+    toc: faqToc
+  },
+  {
+    slug: 'citing-fred',
+    label: 'Citing FRED',
+    section: 'Reference',
+    Component: CitingFredPage,
+    toc: citingFredToc
+  }
 ];
 
 const SECTION_ORDER = [
@@ -158,7 +300,8 @@ export default function DocsPage() {
 
   const currentIndex = PAGES.findIndex(p => p.slug === currentPage.slug);
   const prevPage = currentIndex > 0 ? PAGES[currentIndex - 1] : null;
-  const nextPage = currentIndex < PAGES.length - 1 ? PAGES[currentIndex + 1] : null;
+  const nextPage =
+    currentIndex < PAGES.length - 1 ? PAGES[currentIndex + 1] : null;
 
   const [search, setSearch] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
@@ -317,7 +460,8 @@ export default function DocsPage() {
                 BORDER_STRONG)
             }
             onMouseOut={e =>
-              ((e.currentTarget as HTMLButtonElement).style.borderColor = BORDER)
+              ((e.currentTarget as HTMLButtonElement).style.borderColor =
+                BORDER)
             }
           >
             <svg
