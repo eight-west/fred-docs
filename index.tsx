@@ -453,18 +453,6 @@ export default function DocsPage() {
 
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <a
-              href='https://github.com/aunshx/csrag'
-              target='_blank'
-              rel='noreferrer'
-              style={{
-                fontSize: 13,
-                color: TEXT_SECONDARY,
-                textDecoration: 'none'
-              }}
-            >
-              GitHub
-            </a>
-            <a
               href='/chat'
               style={{
                 background: TEXT_PRIMARY,
