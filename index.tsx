@@ -59,7 +59,7 @@ import {
   TEXT_SECONDARY,
   TEXT_TERTIARY,
   ACCENT
-} from './Content/Proses';
+} from './Prose';
 
 /* ================================================================== */
 /*  PAGE REGISTRY                                                      */
