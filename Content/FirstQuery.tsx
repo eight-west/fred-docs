@@ -42,7 +42,7 @@ export default function FirstQueryPage() {
       <Callout kind='info'>
         <em>"Find biomass for a 20MW facility near Redding."</em>
         <br />
-        <span style={{ opacity: 0.7, fontSize: 13 }}>
+        <span className="text-[13px] opacity-70">
           → returns a recommended site, supply curve, and projected LCOE
         </span>
       </Callout>
@@ -50,7 +50,7 @@ export default function FirstQueryPage() {
         <em>"How much sustainable biomass is available within 50km of
         Burney, CA?"</em>
         <br />
-        <span style={{ opacity: 0.7, fontSize: 13 }}>
+        <span className="text-[13px] opacity-70">
           → returns total BDT/year, number of contributing clusters, and a
           map overlay
         </span>
@@ -59,7 +59,7 @@ export default function FirstQueryPage() {
         <em>"Compare procurement cost between a Quincy and Susanville
         facility, both at 15MW."</em>
         <br />
-        <span style={{ opacity: 0.7, fontSize: 13 }}>
+        <span className="text-[13px] opacity-70">
           → returns side-by-side cost and supply for both candidate sites
         </span>
       </Callout>
@@ -67,7 +67,7 @@ export default function FirstQueryPage() {
         <em>"What's the leverage ratio for fire risk reduction in Shasta
         County?"</em>
         <br />
-        <span style={{ opacity: 0.7, fontSize: 13 }}>
+        <span className="text-[13px] opacity-70">
           → returns the cost-vs-fire Pareto curve with the knee identified
         </span>
       </Callout>
@@ -75,7 +75,7 @@ export default function FirstQueryPage() {
         <em>"Show me cluster supply over 10 years if I run a 25MW plant
         near Auburn."</em>
         <br />
-        <span style={{ opacity: 0.7, fontSize: 13 }}>
+        <span className="text-[13px] opacity-70">
           → returns a year-by-year supply curve with depletion modeling
         </span>
       </Callout>

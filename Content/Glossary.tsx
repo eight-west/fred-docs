@@ -16,7 +16,7 @@ export default function GlossaryPage() {
         lede='Domain vocabulary used throughout the FRED docs. Skim this once and the rest of the documentation reads more naturally.'
       />
 
-      <h2 id='a-c' style={{ fontSize: 22, marginTop: 32, color: '#F5F0E6' }}>
+      <h2 id='a-c' className='mt-8 text-h3 text-primary'>
         A - C
       </h2>
       <DefList
@@ -34,7 +34,7 @@ export default function GlossaryPage() {
         ]}
       />
 
-      <h2 id='d-l' style={{ fontSize: 22, marginTop: 48, color: '#F5F0E6' }}>
+      <h2 id='d-l' className='mt-12 text-h3 text-primary'>
         D - L
       </h2>
       <DefList
@@ -51,7 +51,7 @@ export default function GlossaryPage() {
         ]}
       />
 
-      <h2 id='m-r' style={{ fontSize: 22, marginTop: 48, color: '#F5F0E6' }}>
+      <h2 id='m-r' className='mt-12 text-h3 text-primary'>
         M - R
       </h2>
       <DefList
@@ -63,7 +63,7 @@ export default function GlossaryPage() {
         ]}
       />
 
-      <h2 id='s-z' style={{ fontSize: 22, marginTop: 48, color: '#F5F0E6' }}>
+      <h2 id='s-z' className='mt-12 text-h3 text-primary'>
         S - Z
       </h2>
       <DefList
