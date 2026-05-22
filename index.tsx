@@ -1,47 +1,46 @@
 import { useEffect, useMemo, useState } from 'react';
 
-
 import IntroductionPage, { introductionToc } from './Content/Introduction';
 import FirstQueryPage, { firstQueryToc } from './Content/FirstQuery';
 import ReadingAnswersPage, { readingAnswersToc } from './Content/Answers';
 import ScopePage, { scopeToc } from './Content/Scope';
 
 import CapabilitiesOverviewPage, {
-  capabilitiesOverviewToc
+  capabilitiesOverviewToc,
 } from './Content/CapabilitiesOverview';
 import FacilitySitingPage, {
-  facilitySitingToc
+  facilitySitingToc,
 } from './Content/FacilitySiting';
 import RegionalSupplyPage, {
-  regionalSupplyToc
+  regionalSupplyToc,
 } from './Content/RegionalSupply';
 import FireTradeoffsPage, { fireTradeoffsToc } from './Content/FireTradeoffs';
 import MultiYearPage, { multiYearToc } from './Content/MultiYear';
 import ComparingLocationsPage, {
-  comparingLocationsToc
+  comparingLocationsToc,
 } from './Content/ComparingLocations';
 
 import UnderstandingCostPage, {
-  understandingCostToc
+  understandingCostToc,
 } from './Content/UnderstandingCost';
 import UnderstandingSupplyPage, {
-  understandingSupplyToc
+  understandingSupplyToc,
 } from './Content/UnderstandingSupply';
 import UnderstandingFirePage, {
-  understandingFireToc
+  understandingFireToc,
 } from './Content/UnderstandingFire';
 import UnderstandingTransportPage, {
-  understandingTransportToc
+  understandingTransportToc,
 } from './Content/UnderstandingTransport';
 
 import MethodologyOverviewPage, {
-  methodologyOverviewToc
+  methodologyOverviewToc,
 } from './Content/MethodologyOverview';
 import HarvestCostMethodPage, {
-  harvestCostMethodToc
+  harvestCostMethodToc,
 } from './Content/HarvestCostMethod';
 import TransportMethodPage, {
-  transportMethodToc
+  transportMethodToc,
 } from './Content/TransportMethod';
 import FireMethodPage, { fireMethodToc } from './Content/FireMethod';
 
@@ -49,187 +48,173 @@ import GlossaryPage, { glossaryToc } from './Content/Glossary';
 import FAQPage, { faqToc } from './Content/Faq';
 import CitingFredPage, { citingFredToc } from './Content/CitingFred';
 
-import {
-  MONO,
-  CANVAS,
-  SURFACE,
-  BORDER,
-  BORDER_STRONG,
-  TEXT_PRIMARY,
-  TEXT_SECONDARY,
-  TEXT_TERTIARY,
-  ACCENT
-} from './Prose';
+/* ----------------------------------------------------------- Page registry */
 
-/* ================================================================== */
-/*  PAGE REGISTRY                                                      */
-/* ================================================================== */
-
-interface PageEntry {
+type PageEntry = {
   slug: string;
   label: string;
   section: string;
   Component: () => JSX.Element;
   toc: { id: string; label: string }[];
-}
+};
 
 const PAGES: PageEntry[] = [
-  /* Getting started: what FRED is, how to use it, what to expect */
+  // Getting started: what FRED is, how to use it, what to expect
   {
     slug: 'introduction',
     label: 'Introduction',
     section: 'Getting started',
     Component: IntroductionPage,
-    toc: introductionToc
+    toc: introductionToc,
   },
   {
     slug: 'first-query',
     label: 'Your first query',
     section: 'Getting started',
     Component: FirstQueryPage,
-    toc: firstQueryToc
+    toc: firstQueryToc,
   },
   {
     slug: 'reading-answers',
     label: "Reading FRED's answers",
     section: 'Getting started',
     Component: ReadingAnswersPage,
-    toc: readingAnswersToc
+    toc: readingAnswersToc,
   },
   {
     slug: 'scope',
     label: "What FRED can and can't do",
     section: 'Getting started',
     Component: ScopePage,
-    toc: scopeToc
+    toc: scopeToc,
   },
 
-  /* Capabilities: the kinds of queries FRED handles */
+  // Capabilities: the kinds of queries FRED handles
   {
     slug: 'capabilities-overview',
     label: 'Overview',
     section: 'Capabilities',
     Component: CapabilitiesOverviewPage,
-    toc: capabilitiesOverviewToc
+    toc: capabilitiesOverviewToc,
   },
   {
     slug: 'facility-siting',
     label: 'Facility siting',
     section: 'Capabilities',
     Component: FacilitySitingPage,
-    toc: facilitySitingToc
+    toc: facilitySitingToc,
   },
   {
     slug: 'regional-supply',
     label: 'Regional supply analysis',
     section: 'Capabilities',
     Component: RegionalSupplyPage,
-    toc: regionalSupplyToc
+    toc: regionalSupplyToc,
   },
   {
     slug: 'fire-tradeoffs',
     label: 'Fire-risk tradeoffs',
     section: 'Capabilities',
     Component: FireTradeoffsPage,
-    toc: fireTradeoffsToc
+    toc: fireTradeoffsToc,
   },
   {
     slug: 'multi-year',
     label: 'Multi-year planning',
     section: 'Capabilities',
     Component: MultiYearPage,
-    toc: multiYearToc
+    toc: multiYearToc,
   },
   {
     slug: 'comparing-locations',
     label: 'Comparing locations',
     section: 'Capabilities',
     Component: ComparingLocationsPage,
-    toc: comparingLocationsToc
+    toc: comparingLocationsToc,
   },
 
-  /* Understanding the numbers: interpreting outputs */
+  // Understanding the numbers: interpreting outputs
   {
     slug: 'understanding-cost',
     label: 'Cost: $/BDT and LCOE',
     section: 'Understanding the numbers',
     Component: UnderstandingCostPage,
-    toc: understandingCostToc
+    toc: understandingCostToc,
   },
   {
     slug: 'understanding-supply',
     label: 'Supply: BDT/year',
     section: 'Understanding the numbers',
     Component: UnderstandingSupplyPage,
-    toc: understandingSupplyToc
+    toc: understandingSupplyToc,
   },
   {
     slug: 'understanding-fire',
     label: 'Fire risk and alpha',
     section: 'Understanding the numbers',
     Component: UnderstandingFirePage,
-    toc: understandingFireToc
+    toc: understandingFireToc,
   },
   {
     slug: 'understanding-transport',
     label: 'Transport circuity',
     section: 'Understanding the numbers',
     Component: UnderstandingTransportPage,
-    toc: understandingTransportToc
+    toc: understandingTransportToc,
   },
 
-  /* Methodology: the research behind the predictions */
+  // Methodology: the research behind the predictions
   {
     slug: 'methodology-overview',
     label: 'Overview',
     section: 'Methodology',
     Component: MethodologyOverviewPage,
-    toc: methodologyOverviewToc
+    toc: methodologyOverviewToc,
   },
   {
     slug: 'harvest-cost-method',
     label: 'Harvest cost surrogate',
     section: 'Methodology',
     Component: HarvestCostMethodPage,
-    toc: harvestCostMethodToc
+    toc: harvestCostMethodToc,
   },
   {
     slug: 'transport-method',
     label: 'Transport circuity model',
     section: 'Methodology',
     Component: TransportMethodPage,
-    toc: transportMethodToc
+    toc: transportMethodToc,
   },
   {
     slug: 'fire-method',
     label: 'Fire-aware Pareto framework',
     section: 'Methodology',
     Component: FireMethodPage,
-    toc: fireMethodToc
+    toc: fireMethodToc,
   },
 
-  /* Reference: glossary, FAQ, citations */
+  // Reference: glossary, FAQ, citations
   {
     slug: 'glossary',
     label: 'Glossary',
     section: 'Reference',
     Component: GlossaryPage,
-    toc: glossaryToc
+    toc: glossaryToc,
   },
   {
     slug: 'faq',
     label: 'FAQ',
     section: 'Reference',
     Component: FAQPage,
-    toc: faqToc
+    toc: faqToc,
   },
   {
     slug: 'citing-fred',
     label: 'Citing FRED',
     section: 'Reference',
     Component: CitingFredPage,
-    toc: citingFredToc
-  }
+    toc: citingFredToc,
+  },
 ];
 
 const SECTION_ORDER = [
@@ -237,31 +222,27 @@ const SECTION_ORDER = [
   'Capabilities',
   'Understanding the numbers',
   'Methodology',
-  'Reference'
+  'Reference',
 ];
 
-/* ================================================================== */
-/*  HOOKS                                                              */
-/* ================================================================== */
+/* ------------------------------------------------------------------- Hooks */
 
 function useHashSlug(defaultSlug: string): string {
   const [slug, setSlug] = useState<string>(() => {
     if (typeof window === 'undefined') return defaultSlug;
     const hash = window.location.hash.replace(/^#/, '');
-    /* Hash can be a page slug or a section anchor inside the current page.
-       We only treat it as a page slug if it matches one of our registered
-       pages. */
-    const isPage = PAGES.some(p => p.slug === hash);
+    // Hash can be a page slug or a section anchor inside the current page.
+    // We only treat it as a page slug if it matches one of our registered pages.
+    const isPage = PAGES.some((p) => p.slug === hash);
     return isPage ? hash : defaultSlug;
   });
 
   useEffect(() => {
     function onHash() {
       const hash = window.location.hash.replace(/^#/, '');
-      const isPage = PAGES.some(p => p.slug === hash);
+      const isPage = PAGES.some((p) => p.slug === hash);
       if (isPage) {
         setSlug(hash);
-        /* scroll to top when switching pages */
         window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
       }
     }
@@ -291,22 +272,21 @@ function useScrollSpy(ids: string[]): string {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ids.join('|')]);
 
   return active;
 }
 
-/* ================================================================== */
-/*  MAIN COMPONENT                                                     */
-/* ================================================================== */
+/* --------------------------------------------------------------- Main page */
 
 export default function DocsPage() {
   const currentSlug = useHashSlug('introduction');
-  const currentPage = PAGES.find(p => p.slug === currentSlug) ?? PAGES[0];
-  const tocIds = useMemo(() => currentPage.toc.map(t => t.id), [currentPage]);
+  const currentPage = PAGES.find((p) => p.slug === currentSlug) ?? PAGES[0];
+  const tocIds = useMemo(() => currentPage.toc.map((t) => t.id), [currentPage]);
   const activeAnchor = useScrollSpy(tocIds);
 
-  const currentIndex = PAGES.findIndex(p => p.slug === currentPage.slug);
+  const currentIndex = PAGES.findIndex((p) => p.slug === currentPage.slug);
   const prevPage = currentIndex > 0 ? PAGES[currentIndex - 1] : null;
   const nextPage =
     currentIndex < PAGES.length - 1 ? PAGES[currentIndex + 1] : null;
@@ -329,148 +309,26 @@ export default function DocsPage() {
   const Content = currentPage.Component;
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: CANVAS,
-        color: TEXT_PRIMARY,
-        fontFamily: "'Outfit', system-ui, sans-serif"
-      }}
-    >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-        body { margin: 0; }
-        .fred-doc-heading:hover .fred-doc-anchor { opacity: 1 !important; }
-        .fred-doc-prose p { font-size: 15px; line-height: 1.75; color: ${TEXT_SECONDARY}; margin: 0 0 16px; }
-        .fred-doc-prose a { color: ${ACCENT}; text-decoration: none; border-bottom: 1px solid rgba(74,222,128,0.25); }
-        .fred-doc-prose a:hover { border-bottom-color: ${ACCENT}; }
-        .fred-doc-prose ul, .fred-doc-prose ol { font-size: 15px; line-height: 1.75; color: ${TEXT_SECONDARY}; padding-left: 24px; margin: 0 0 16px; }
-        .fred-doc-prose li { margin-bottom: 6px; }
-        .fred-doc-prose strong { color: ${TEXT_PRIMARY}; font-weight: 500; }
-        .fred-doc-prose em { color: ${TEXT_PRIMARY}; font-style: italic; }
-        .docs-grid {
-          display: grid;
-          grid-template-columns: 240px minmax(0, 1fr) 200px;
-          gap: 48px;
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 32px 32px 120px;
-        }
-        @media (max-width: 1100px) {
-          .docs-grid { grid-template-columns: 220px minmax(0, 1fr); }
-          .docs-toc { display: none; }
-        }
-        @media (max-width: 760px) {
-          .docs-grid { grid-template-columns: 1fr; padding: 24px 20px 80px; }
-          .docs-sidebar { display: none; }
-        }
-        .sidebar-item {
-          display: block;
-          font-size: 13px;
-          color: ${TEXT_SECONDARY};
-          text-decoration: none;
-          padding: 6px 10px;
-          border-radius: 6px;
-          transition: background 0.15s, color 0.15s;
-          margin-left: -10px;
-          border-left: 2px solid transparent;
-          line-height: 1.4;
-        }
-        .sidebar-item:hover {
-          color: ${TEXT_PRIMARY};
-          background: rgba(138,171,135,0.04);
-        }
-        .sidebar-item.active {
-          color: ${TEXT_PRIMARY};
-          background: rgba(74,222,128,0.06);
-          border-left-color: ${ACCENT};
-          padding-left: 12px;
-          margin-left: -12px;
-        }
-        .docs-grid main h1 { color: ${TEXT_PRIMARY}; }
-        .docs-grid main dl, .docs-grid main dd, .docs-grid main dt { color: ${TEXT_SECONDARY}; }
-      `}</style>
-
-      {/* ============================== TOP BAR ============================== */}
-      <header
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 40,
-          background: 'rgba(6,14,6,0.85)',
-          backdropFilter: 'blur(14px)',
-          borderBottom: `1px solid ${BORDER}`
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1280,
-            margin: '0 auto',
-            padding: '14px 32px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 24
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+    <div className='min-h-screen bg-canvas-deep text-primary'>
+      <header className='sticky top-0 z-40 border-b border-edge-soft bg-canvas-deep/85 backdrop-blur-md'>
+        <div className='mx-auto flex max-w-content items-center justify-between gap-6 px-8 py-3.5'>
+          <div className='flex items-center gap-4'>
             <a
               href='/'
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-                fontSize: 15,
-                fontWeight: 500,
-                color: TEXT_PRIMARY,
-                textDecoration: 'none',
-                letterSpacing: '0.01em'
-              }}
+              className='flex items-center gap-2 text-base font-medium tracking-[0.01em] text-primary no-underline'
             >
               FRED
-              <span
-                style={{
-                  fontSize: 10,
-                  padding: '2px 6px',
-                  border: `1px solid ${BORDER_STRONG}`,
-                  borderRadius: 4,
-                  color: 'rgba(138,171,135,0.8)',
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase'
-                }}
-              >
+              <span className='rounded border border-edge-soft-strong px-1.5 py-0.5 text-[10px] uppercase tracking-[0.06em] text-[rgba(138,171,135,0.8)]'>
                 Beta
               </span>
             </a>
-            <span style={{ width: 1, height: 18, background: BORDER_STRONG }} />
-            <span style={{ fontSize: 14, color: TEXT_SECONDARY }}>Docs</span>
+            <span className='h-[18px] w-px bg-edge-soft-strong' />
+            <span className='text-sm text-secondary-warm'>Docs</span>
           </div>
 
           <button
             onClick={() => setSearchOpen(true)}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 10,
-              padding: '7px 14px',
-              background: 'rgba(8,14,8,0.7)',
-              border: `1px solid ${BORDER}`,
-              borderRadius: 8,
-              fontSize: 13,
-              color: TEXT_TERTIARY,
-              cursor: 'pointer',
-              minWidth: 280,
-              fontFamily: 'inherit',
-              transition: 'border-color 0.15s'
-            }}
-            onMouseOver={e =>
-              ((e.currentTarget as HTMLButtonElement).style.borderColor =
-                BORDER_STRONG)
-            }
-            onMouseOut={e =>
-              ((e.currentTarget as HTMLButtonElement).style.borderColor =
-                BORDER)
-            }
+            className='flex min-w-[280px] cursor-pointer items-center gap-2.5 rounded-lg border border-edge-soft bg-[rgba(8,14,8,0.7)] px-3.5 py-1.5 text-[13px] text-tertiary-soft transition-colors hover:border-edge-soft-strong'
           >
             <svg
               width='14'
@@ -483,33 +341,16 @@ export default function DocsPage() {
               <circle cx='9' cy='9' r='6' />
               <path d='M14 14l4 4' strokeLinecap='round' />
             </svg>
-            <span style={{ flex: 1, textAlign: 'left' }}>Search docs...</span>
-            <span
-              style={{
-                fontFamily: MONO,
-                fontSize: 10,
-                color: TEXT_TERTIARY,
-                padding: '2px 6px',
-                background: 'rgba(138,171,135,0.08)',
-                borderRadius: 4
-              }}
-            >
+            <span className='flex-1 text-left'>Search docs...</span>
+            <span className='rounded bg-[rgba(138,171,135,0.08)] px-1.5 py-0.5 font-mono text-[10px] text-tertiary-soft'>
               ⌘K
             </span>
           </button>
 
-          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+          <div className='flex items-center gap-3'>
             <a
               href='/chat'
-              style={{
-                background: TEXT_PRIMARY,
-                color: CANVAS,
-                padding: '7px 14px',
-                borderRadius: 8,
-                fontSize: 13,
-                fontWeight: 500,
-                textDecoration: 'none'
-              }}
+              className='rounded-lg bg-primary px-3.5 py-1.5 text-[13px] font-medium text-canvas-deep no-underline'
             >
               Platform
             </a>
@@ -517,48 +358,22 @@ export default function DocsPage() {
         </div>
       </header>
 
-      {/* ============================== SEARCH MODAL ============================== */}
       {searchOpen && (
         <div
           onClick={() => setSearchOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(0,0,0,0.6)',
-            backdropFilter: 'blur(4px)',
-            zIndex: 100,
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            paddingTop: 100
-          }}
+          className='fixed inset-0 z-[100] flex items-start justify-center bg-black/60 pt-24 backdrop-blur-[4px]'
         >
           <div
-            onClick={e => e.stopPropagation()}
-            style={{
-              width: '100%',
-              maxWidth: 560,
-              background: SURFACE,
-              border: `1px solid ${BORDER_STRONG}`,
-              borderRadius: 12,
-              overflow: 'hidden'
-            }}
+            onClick={(e) => e.stopPropagation()}
+            className='w-full max-w-[560px] overflow-hidden rounded-xl border border-edge-soft-strong bg-surface-deep'
           >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '16px 20px',
-                borderBottom: `1px solid ${BORDER}`,
-                gap: 12
-              }}
-            >
+            <div className='flex items-center gap-3 border-b border-edge-soft px-5 py-4'>
               <svg
                 width='16'
                 height='16'
                 viewBox='0 0 20 20'
                 fill='none'
-                stroke={TEXT_SECONDARY}
+                stroke='rgba(245,240,230,0.65)'
                 strokeWidth='1.5'
               >
                 <circle cx='9' cy='9' r='6' />
@@ -567,78 +382,30 @@ export default function DocsPage() {
               <input
                 autoFocus
                 value={search}
-                onChange={e => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)}
                 placeholder='Search documentation...'
-                style={{
-                  flex: 1,
-                  background: 'transparent',
-                  border: 'none',
-                  outline: 'none',
-                  fontSize: 15,
-                  color: TEXT_PRIMARY,
-                  fontFamily: 'inherit'
-                }}
+                className='flex-1 border-none bg-transparent text-[15px] text-primary outline-none'
               />
-              <span
-                style={{
-                  fontFamily: MONO,
-                  fontSize: 10,
-                  color: TEXT_TERTIARY,
-                  padding: '3px 8px',
-                  background: 'rgba(138,171,135,0.08)',
-                  borderRadius: 4
-                }}
-              >
+              <span className='rounded bg-[rgba(138,171,135,0.08)] px-2 py-0.5 font-mono text-[10px] text-tertiary-soft'>
                 ESC
               </span>
             </div>
-            <div style={{ padding: '8px 0', maxHeight: 360, overflow: 'auto' }}>
+            <div className='max-h-[360px] overflow-auto py-2'>
               {filterSearch(search).map((r, i) => (
                 <a
                   key={i}
                   href={`#${r.slug}`}
                   onClick={() => setSearchOpen(false)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 12,
-                    padding: '10px 20px',
-                    color: TEXT_PRIMARY,
-                    textDecoration: 'none',
-                    fontSize: 14
-                  }}
-                  onMouseOver={e =>
-                    ((e.currentTarget as HTMLAnchorElement).style.background =
-                      'rgba(74,222,128,0.06)')
-                  }
-                  onMouseOut={e =>
-                    ((e.currentTarget as HTMLAnchorElement).style.background =
-                      'transparent')
-                  }
+                  className='flex items-center gap-3 px-5 py-2.5 text-sm text-primary no-underline hover:bg-accent/[0.06]'
                 >
-                  <span
-                    style={{
-                      fontFamily: MONO,
-                      fontSize: 10,
-                      color: TEXT_TERTIARY,
-                      letterSpacing: '0.08em',
-                      minWidth: 110
-                    }}
-                  >
+                  <span className='min-w-[110px] font-mono text-[10px] tracking-[0.08em] text-tertiary-soft'>
                     {r.section.toUpperCase()}
                   </span>
                   <span>{r.label}</span>
                 </a>
               ))}
               {filterSearch(search).length === 0 && (
-                <div
-                  style={{
-                    padding: '20px',
-                    color: TEXT_TERTIARY,
-                    fontSize: 13,
-                    textAlign: 'center'
-                  }}
-                >
+                <div className='p-5 text-center text-[13px] text-tertiary-soft'>
                   No results for "{search}"
                 </div>
               )}
@@ -647,103 +414,49 @@ export default function DocsPage() {
         </div>
       )}
 
-      {/* ============================== BODY GRID ============================== */}
-      <div className='docs-grid'>
-        {/* SIDEBAR */}
-        <aside
-          className='docs-sidebar'
-          style={{
-            position: 'sticky',
-            top: 80,
-            alignSelf: 'flex-start',
-            maxHeight: 'calc(100vh - 100px)',
-            overflowY: 'auto',
-            paddingTop: 16
-          }}
-        >
-          {SECTION_ORDER.map(section => {
-            const items = PAGES.filter(p => p.section === section);
+      <div className='mx-auto grid max-w-content grid-cols-1 gap-6 px-5 pb-20 pt-6 md:grid-cols-[220px_minmax(0,1fr)] md:gap-12 md:px-8 md:pb-30 md:pt-8 xl:grid-cols-[240px_minmax(0,1fr)_200px]'>
+        <aside className='hidden self-start pt-4 md:sticky md:top-20 md:block md:max-h-[calc(100vh-100px)] md:overflow-y-auto'>
+          {SECTION_ORDER.map((section) => {
+            const items = PAGES.filter((p) => p.section === section);
             return (
-              <div key={section} style={{ marginBottom: 24 }}>
-                <div
-                  style={{
-                    fontFamily: MONO,
-                    fontSize: 10,
-                    color: TEXT_TERTIARY,
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    marginBottom: 10,
-                    paddingLeft: 10
-                  }}
-                >
+              <div key={section} className='mb-6'>
+                <div className='mb-2.5 pl-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-tertiary-soft'>
                   {section}
                 </div>
-                {items.map(item => (
-                  <a
-                    key={item.slug}
-                    href={`#${item.slug}`}
-                    className={`sidebar-item ${
-                      item.slug === currentPage.slug ? 'active' : ''
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+                {items.map((item) => {
+                  const isActive = item.slug === currentPage.slug;
+                  return (
+                    <a
+                      key={item.slug}
+                      href={`#${item.slug}`}
+                      className={`-ml-2.5 block rounded-md border-l-2 py-1.5 pl-2.5 text-[13px] leading-snug no-underline transition-colors hover:bg-[rgba(138,171,135,0.04)] hover:text-primary ${
+                        isActive
+                          ? '-ml-3 border-accent bg-accent/[0.06] pl-3 text-primary'
+                          : 'border-transparent text-secondary-warm'
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  );
+                })}
               </div>
             );
           })}
         </aside>
 
-        {/* MAIN CONTENT */}
         <main className='fred-doc-prose'>
           <Content />
 
-          {/* NEXT / PREV */}
-          <nav
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 12,
-              marginTop: 80,
-              paddingTop: 32,
-              borderTop: `1px solid ${BORDER}`
-            }}
-          >
+          <nav className='mt-20 grid grid-cols-2 gap-3 border-t border-edge-soft pt-8'>
             {prevPage ? (
               <a
                 href={`#${prevPage.slug}`}
-                style={{
-                  padding: 20,
-                  background: SURFACE,
-                  border: `1px solid ${BORDER}`,
-                  borderRadius: 8,
-                  textDecoration: 'none',
-                  color: TEXT_PRIMARY,
-                  transition: 'border-color 0.15s'
-                }}
-                onMouseOver={e =>
-                  ((e.currentTarget as HTMLAnchorElement).style.borderColor =
-                    BORDER_STRONG)
-                }
-                onMouseOut={e =>
-                  ((e.currentTarget as HTMLAnchorElement).style.borderColor =
-                    BORDER)
-                }
+                className='rounded-lg border border-edge-soft bg-surface-deep p-5 text-primary no-underline transition-colors hover:border-edge-soft-strong'
               >
-                <div
-                  style={{
-                    fontFamily: MONO,
-                    fontSize: 10,
-                    color: TEXT_TERTIARY,
-                    letterSpacing: '0.12em',
-                    marginBottom: 8
-                  }}
-                >
+                <div className='mb-2 font-mono text-[10px] tracking-[0.12em] text-tertiary-soft'>
                   ← PREVIOUS
                 </div>
-                <div style={{ fontSize: 15, fontWeight: 500 }}>
-                  {prevPage.label}
-                </div>
+                <div className='text-[15px] font-medium'>{prevPage.label}</div>
               </a>
             ) : (
               <div />
@@ -751,39 +464,12 @@ export default function DocsPage() {
             {nextPage ? (
               <a
                 href={`#${nextPage.slug}`}
-                style={{
-                  padding: 20,
-                  background: SURFACE,
-                  border: `1px solid ${BORDER}`,
-                  borderRadius: 8,
-                  textDecoration: 'none',
-                  color: TEXT_PRIMARY,
-                  textAlign: 'right',
-                  transition: 'border-color 0.15s'
-                }}
-                onMouseOver={e =>
-                  ((e.currentTarget as HTMLAnchorElement).style.borderColor =
-                    BORDER_STRONG)
-                }
-                onMouseOut={e =>
-                  ((e.currentTarget as HTMLAnchorElement).style.borderColor =
-                    BORDER)
-                }
+                className='rounded-lg border border-edge-soft bg-surface-deep p-5 text-right text-primary no-underline transition-colors hover:border-edge-soft-strong'
               >
-                <div
-                  style={{
-                    fontFamily: MONO,
-                    fontSize: 10,
-                    color: TEXT_TERTIARY,
-                    letterSpacing: '0.12em',
-                    marginBottom: 8
-                  }}
-                >
+                <div className='mb-2 font-mono text-[10px] tracking-[0.12em] text-tertiary-soft'>
                   NEXT →
                 </div>
-                <div style={{ fontSize: 15, fontWeight: 500 }}>
-                  {nextPage.label}
-                </div>
+                <div className='text-[15px] font-medium'>{nextPage.label}</div>
               </a>
             ) : (
               <div />
@@ -791,100 +477,37 @@ export default function DocsPage() {
           </nav>
         </main>
 
-        {/* RIGHT-RAIL TOC */}
-        <aside
-          className='docs-toc'
-          style={{
-            position: 'sticky',
-            top: 80,
-            alignSelf: 'flex-start',
-            maxHeight: 'calc(100vh - 100px)',
-            overflowY: 'auto',
-            paddingTop: 16
-          }}
-        >
-          <div
-            style={{
-              fontFamily: MONO,
-              fontSize: 10,
-              color: TEXT_TERTIARY,
-              letterSpacing: '0.12em',
-              marginBottom: 14,
-              textTransform: 'uppercase'
-            }}
-          >
+        <aside className='hidden self-start pt-4 xl:sticky xl:top-20 xl:block xl:max-h-[calc(100vh-100px)] xl:overflow-y-auto'>
+          <div className='mb-3.5 font-mono text-[10px] uppercase tracking-[0.12em] text-tertiary-soft'>
             On this page
           </div>
-          {currentPage.toc.map(t => {
+          {currentPage.toc.map((t) => {
             const active = activeAnchor === t.id;
             return (
               <a
                 key={t.id}
                 href={`#${t.id}`}
-                style={{
-                  display: 'block',
-                  fontSize: 12,
-                  color: active ? TEXT_PRIMARY : TEXT_TERTIARY,
-                  textDecoration: 'none',
-                  padding: '5px 0 5px 12px',
-                  borderLeft: `2px solid ${active ? ACCENT : 'transparent'}`,
-                  transition: 'color 0.15s, border-color 0.15s',
-                  lineHeight: 1.4
-                }}
-                onMouseOver={e =>
-                  ((e.currentTarget as HTMLAnchorElement).style.color =
-                    TEXT_PRIMARY)
-                }
-                onMouseOut={e => {
-                  if (!active)
-                    (e.currentTarget as HTMLAnchorElement).style.color =
-                      TEXT_TERTIARY;
-                }}
+                className={`block border-l-2 py-1.5 pl-3 text-xs leading-snug no-underline transition-colors hover:text-primary ${
+                  active
+                    ? 'border-accent text-primary'
+                    : 'border-transparent text-tertiary-soft'
+                }`}
               >
                 {t.label}
               </a>
             );
           })}
 
-          <div
-            style={{
-              marginTop: 32,
-              padding: '14px 14px',
-              border: `1px solid ${BORDER}`,
-              borderRadius: 8,
-              background: 'rgba(74,222,128,0.04)'
-            }}
-          >
-            <div
-              style={{
-                fontFamily: MONO,
-                fontSize: 10,
-                color: ACCENT,
-                letterSpacing: '0.1em',
-                marginBottom: 6
-              }}
-            >
+          <div className='mt-8 rounded-lg border border-edge-soft bg-accent/[0.04] p-3.5'>
+            <div className='mb-1.5 font-mono text-[10px] tracking-[0.1em] text-accent'>
               TRY IT
             </div>
-            <p
-              style={{
-                fontSize: 12,
-                color: TEXT_SECONDARY,
-                margin: '0 0 10px',
-                lineHeight: 1.5
-              }}
-            >
+            <p className='mb-2.5 text-xs leading-snug text-secondary-warm'>
               See FRED resolve a procurement query in real time.
             </p>
             <a
               href='/chat'
-              style={{
-                display: 'inline-block',
-                fontSize: 12,
-                color: TEXT_PRIMARY,
-                textDecoration: 'none',
-                fontWeight: 500
-              }}
+              className='inline-block text-xs font-medium text-primary no-underline'
             >
               Launch FRED →
             </a>
@@ -895,21 +518,19 @@ export default function DocsPage() {
   );
 }
 
-/* ================================================================== */
-/*  SEARCH HELPER                                                      */
-/* ================================================================== */
+/* ------------------------------------------------------------ Search helper */
 
 function filterSearch(q: string) {
-  const all = PAGES.map(p => ({
+  const all = PAGES.map((p) => ({
     section: p.section,
     label: p.label,
-    slug: p.slug
+    slug: p.slug,
   }));
   if (!q.trim()) return all.slice(0, 8);
   const lower = q.toLowerCase();
   return all
     .filter(
-      r =>
+      (r) =>
         r.label.toLowerCase().includes(lower) ||
         r.section.toLowerCase().includes(lower)
     )
