@@ -29,7 +29,7 @@ export default function GlossaryPage() {
           { term: 'C-BREC', def: 'California Biomass Residue and Energy Conversion dataset. The source for FRED\'s cluster polygons, biomass volumes, and prescription metadata.' },
           { term: 'CHP', def: 'Combined Heat and Power. One of three biomass facility technology types FRED can model.' },
           { term: 'Circuity factor (CF)', def: <>The ratio of road network distance to straight-line distance between two points. Used to convert Euclidean haul estimates into realistic truck distances. See <a href='#understanding-transport'>Transport: circuity and haul</a>.</> },
-          { term: 'Cluster', def: 'FRED\'s atomic unit of supply. A polygon over a small forest area with known biomass inventory, harvesting system feasibility, and precomputed harvest cost. About 2.1 million clusters cover California.' },
+          { term: 'Cluster', def: 'FRED\'s atomic unit of supply. A polygon over a small forest area with known biomass inventory, harvesting system feasibility, and precomputed harvest cost. About 3.1 million clusters cover California.' },
           { term: 'CS-RAG', def: 'Compositional Spatial RAG. FRED\'s underlying architecture. Retrieves spatial prediction layers and composes them dynamically at query time.' }
         ]}
       />
@@ -41,7 +41,6 @@ export default function GlossaryPage() {
         items={[
           { term: 'Depletion', def: 'In multi-year projections, the sequential exhaustion of clusters as they are harvested. FRED\'s depletion model removes each visited cluster from the available pool for subsequent years.' },
           { term: 'FRCS', def: 'Forest Residue Cost Simulator. A USDA Forest Service tool that computes harvest cost. FRED uses a learned surrogate of FRCS rather than running it in real time.' },
-          { term: 'FRREDSS', def: 'Forest Resource and Renewable Energy Decision Support System. The web application that hosts FRED.' },
           { term: 'FSim', def: 'USDA Wildfire Simulator. The source of the burn probability raster FRED uses for fire-aware procurement.' },
           { term: 'GP / GPO / CHP', def: 'The three facility technology types FRED can model: Generating Plant, Generating Plant Oversized, and Combined Heat and Power. Each has different biomass demand per MW.' },
           { term: 'Harvest cost surrogate', def: <>The XGBoost model that predicts FRCS harvest cost in approximately 0.2 ms per cluster. See <a href='#harvest-cost-method'>Harvest cost surrogate</a>.</> },

@@ -162,7 +162,7 @@ export default function ScopePage() {
       </ul>
       <p>
         If you have a use case FRED almost handles but doesn't quite, email{' '}
-        <a href='mailto:frredss@ucdavis.edu'>frredss@ucdavis.edu</a>. The
+        <a href='mailto:contact@biofred.us'>contact@biofred.us</a>. The
         roadmap is driven by what users are actually trying to do.
       </p>
     </>

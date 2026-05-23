@@ -25,12 +25,9 @@ export default function FAQPage() {
         Who built FRED?
       </Heading>
       <p>
-        FRED is a research output from the UC Davis College of Engineering,
-        developed by Aunsh Bandivadekar under the advisement of
-        Dr. Boon-Ling Yeo, with collaborators across the College of
-        Agricultural and Environmental Sciences and the UC Davis Energy
-        and Efficiency Institute. The underlying research is documented
-        in a peer-reviewed thesis and several published papers.
+        FRED is a research project developed by Aunsh Bandivadekar with
+        collaborators. The underlying research is documented in a
+        peer-reviewed thesis and several published papers.
       </p>
 
       <Heading id='is-fred-free' level={3}>
@@ -38,10 +35,10 @@ export default function FAQPage() {
       </Heading>
       <p>
         Yes, for research, policy analysis, and California biomass
-        procurement evaluation. FRED is a research tool maintained by UC
-        Davis. Commercial use at scale requires no fee but does require
-        coordination with the team; email{' '}
-        <a href='mailto:frredss@ucdavis.edu'>frredss@ucdavis.edu</a>.
+        procurement evaluation. FRED is a research tool maintained by
+        the project team. Commercial use at scale requires no fee but
+        does require coordination; email{' '}
+        <a href='mailto:contact@biofred.us'>contact@biofred.us</a>.
       </p>
 
       <Heading id='how-much-does-it-cost-to-run' level={3}>
@@ -190,7 +187,7 @@ export default function FAQPage() {
         XGBoost model. The IDW transport raster is available as a GeoTIFF.
         The USDA FSim burn probability data is publicly available from
         USDA. Email{' '}
-        <a href='mailto:frredss@ucdavis.edu'>frredss@ucdavis.edu</a> to
+        <a href='mailto:contact@biofred.us'>contact@biofred.us</a> to
         request the artifacts for reproducibility.
       </p>
 

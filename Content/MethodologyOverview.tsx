@@ -129,7 +129,7 @@ export default function MethodologyOverviewPage() {
         </li>
       </ul>
       <p>
-        Email <a href='mailto:frredss@ucdavis.edu'>frredss@ucdavis.edu</a>{' '}
+        Email <a href='mailto:contact@biofred.us'>contact@biofred.us</a>{' '}
         for access to the artifacts directly, or read the thesis and
         accompanying papers for the full methodology.
       </p>

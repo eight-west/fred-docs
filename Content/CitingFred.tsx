@@ -57,7 +57,6 @@ export default function CitingFredPage() {
   author = {Bandivadekar, Aunsh},
   title  = {Agentic Decision Support via Spatial Prediction Layers
            for Forest Biomass Procurement in California},
-  school = {University of California, Davis},
   year   = {2026},
   type   = {Master's thesis}
 }`}
@@ -72,26 +71,6 @@ export default function CitingFredPage() {
         published versions are accessible through the{' '}
         <a href='/'>FRED landing page</a>.
       </p>
-
-      <Heading id='harvest-cost-cite' level={3}>
-        Harvest cost surrogate
-      </Heading>
-      <p>
-        The FRREDSS framework paper, which includes the harvest cost
-        surrogate methodology:
-      </p>
-      <CodeBlock
-        lang='bash'
-        filename='BibTeX'
-        code={`@article{bandivadekar2025frredss,
-  author  = {Bandivadekar, Aunsh and Yeo, Boon-Ling and others},
-  title   = {FRREDSS: A Spatial Decision Support System for
-            Forest Biomass Procurement},
-  journal = {Computers and Electronics in Agriculture},
-  year    = {2025},
-  note    = {Submitted}
-}`}
-      />
 
       <Heading id='transport-cite' level={3}>
         Transport circuity model
@@ -129,9 +108,8 @@ export default function CitingFredPage() {
       </Heading>
       <p>If FRED contributed materially to your work, a brief acknowledgment is appreciated. Example wording:</p>
       <Callout kind='info'>
-        <em>"Procurement analysis was conducted using FRED (Forest
-        Resource and Renewable Energy Decision System), developed by
-        Bandivadekar et al. at UC Davis."</em>
+        <em>"Procurement analysis was conducted using FRED, developed by
+        Bandivadekar et al."</em>
       </Callout>
       <p>
         For policy reports or industry publications where formal citation
