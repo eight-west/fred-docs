@@ -349,10 +349,10 @@ export default function DocsPage() {
 
           <div className='flex items-center gap-3'>
             <a
-              href='/chat'
+              href='/dashboard'
               className='rounded-lg bg-primary px-3.5 py-1.5 text-[13px] font-medium text-canvas-deep no-underline'
             >
-              Platform
+              Dashboard
             </a>
           </div>
         </div>
