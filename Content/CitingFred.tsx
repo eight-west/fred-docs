@@ -79,7 +79,7 @@ export default function CitingFredPage() {
         lang='bash'
         filename='BibTeX'
         code={`@article{bandivadekar2025transport,
-  author  = {Bandivadekar, Aunsh and Yeo, Boon-Ling and others},
+  author  = {Bandivadekar A., Yeo B., and Marvinney E.},
   title   = {An Empirical Transport Circuity Model for
             Forest Biomass Procurement},
   journal = {Journal of Transport Geography},
@@ -95,7 +95,7 @@ export default function CitingFredPage() {
         lang='bash'
         filename='BibTeX'
         code={`@inproceedings{bandivadekar2026csrag,
-  author    = {Bandivadekar, Aunsh and Yeo, Boon-Ling and others},
+  author    = {Bandivadekar A},
   title     = {Compositional Spatial RAG: An Agentic Architecture
               for Spatial Decision Support},
   booktitle = {Forthcoming},
