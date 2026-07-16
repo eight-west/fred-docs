@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { URL_DASHBOARD_PAGE } from '../../Resources/Constants';
 
 import IntroductionPage, { introductionToc } from './Content/Introduction';
 import FirstQueryPage, { firstQueryToc } from './Content/FirstQuery';
@@ -349,7 +350,7 @@ export default function DocsPage() {
 
           <div className='flex items-center gap-3'>
             <a
-              href='/dashboard'
+              href={URL_DASHBOARD_PAGE}
               className='rounded-lg bg-primary px-3.5 py-1.5 text-[13px] font-medium text-canvas-deep no-underline'
             >
               Dashboard
