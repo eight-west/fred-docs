@@ -48,6 +48,7 @@ import FireMethodPage, { fireMethodToc } from './Content/FireMethod';
 import GlossaryPage, { glossaryToc } from './Content/Glossary';
 import FAQPage, { faqToc } from './Content/Faq';
 import CitingFredPage, { citingFredToc } from './Content/CitingFred';
+import { BORDER_STRONG, SERIF, TEXT_PRIMARY, TEXT_SECONDARY } from '../Landing';
 
 /* ----------------------------------------------------------- Page registry */
 
@@ -315,11 +316,30 @@ export default function DocsPage() {
         <div className='mx-auto flex max-w-content items-center justify-between gap-6 px-8 py-3.5'>
           <div className='flex items-center gap-4'>
             <a
-              href='/'
-              className='flex items-center gap-2 text-base font-medium tracking-[0.01em] text-primary no-underline'
+              href='#'
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: 15,
+                color: TEXT_PRIMARY,
+                textDecoration: 'none',
+                fontWeight: 500,
+                fontFamily: SERIF
+              }}
             >
               FRED
-              <span className='rounded border border-edge-soft-strong px-1.5 py-0.5 text-[10px] uppercase tracking-[0.06em] text-[rgba(138,171,135,0.8)]'>
+              <span
+                style={{
+                  fontSize: 10,
+                  padding: '2px 6px',
+                  border: `1px solid ${BORDER_STRONG}`,
+                  borderRadius: 4,
+                  color: 'rgba(138,171,135,0.8)',
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase'
+                }}
+              >
                 Beta
               </span>
             </a>
@@ -348,7 +368,25 @@ export default function DocsPage() {
             </span>
           </button>
 
-          <div className='flex items-center gap-3'>
+          <div className='flex items-center gap-8'>
+            <a
+              key={'Home'}
+              href={'/home'}
+              style={{
+                fontSize: 13,
+                color: TEXT_SECONDARY,
+                textDecoration: 'none',
+                transition: 'color 0.2s'
+              }}
+              onMouseOver={e =>
+                (e.currentTarget.style.color = TEXT_PRIMARY)
+              }
+              onMouseOut={e =>
+                (e.currentTarget.style.color = TEXT_SECONDARY)
+              }
+            >
+              {'Home'}
+            </a>
             <a
               href={URL_DASHBOARD_PAGE}
               className='rounded-lg bg-primary px-3.5 py-1.5 text-[13px] font-medium text-canvas-deep no-underline'
@@ -365,7 +403,7 @@ export default function DocsPage() {
           className='fixed inset-0 z-[100] flex items-start justify-center bg-black/60 pt-24 backdrop-blur-[4px]'
         >
           <div
-            onClick={(e) => e.stopPropagation()}
+            onClick={e => e.stopPropagation()}
             className='w-full max-w-[560px] overflow-hidden rounded-xl border border-edge-soft-strong bg-surface-deep'
           >
             <div className='flex items-center gap-3 border-b border-edge-soft px-5 py-4'>
@@ -383,7 +421,7 @@ export default function DocsPage() {
               <input
                 autoFocus
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={e => setSearch(e.target.value)}
                 placeholder='Search documentation...'
                 className='flex-1 border-none bg-transparent text-[15px] text-primary outline-none'
               />
@@ -417,14 +455,14 @@ export default function DocsPage() {
 
       <div className='mx-auto grid max-w-content grid-cols-1 gap-6 px-5 pb-20 pt-6 md:grid-cols-[220px_minmax(0,1fr)] md:gap-12 md:px-8 md:pb-30 md:pt-8 xl:grid-cols-[240px_minmax(0,1fr)_200px]'>
         <aside className='hidden self-start pt-4 md:sticky md:top-20 md:block md:max-h-[calc(100vh-100px)] md:overflow-y-auto'>
-          {SECTION_ORDER.map((section) => {
-            const items = PAGES.filter((p) => p.section === section);
+          {SECTION_ORDER.map(section => {
+            const items = PAGES.filter(p => p.section === section);
             return (
               <div key={section} className='mb-6'>
                 <div className='mb-2.5 pl-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-tertiary-soft'>
                   {section}
                 </div>
-                {items.map((item) => {
+                {items.map(item => {
                   const isActive = item.slug === currentPage.slug;
                   return (
                     <a
@@ -482,7 +520,7 @@ export default function DocsPage() {
           <div className='mb-3.5 font-mono text-[10px] uppercase tracking-[0.12em] text-tertiary-soft'>
             On this page
           </div>
-          {currentPage.toc.map((t) => {
+          {currentPage.toc.map(t => {
             const active = activeAnchor === t.id;
             return (
               <a
@@ -510,7 +548,7 @@ export default function DocsPage() {
               href='/chat'
               className='inline-block text-xs font-medium text-primary no-underline'
             >
-              Launch FRED →
+              Launch FRED
             </a>
           </div>
         </aside>
