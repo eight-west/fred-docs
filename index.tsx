@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { URL_DASHBOARD_PAGE } from '../../Resources/Constants';
+import { URL_DASHBOARD_PAGE, URL_LANDING_PAGE } from '../../Resources/Constants';
 
 import IntroductionPage, { introductionToc } from './Content/Introduction';
 import FirstQueryPage, { firstQueryToc } from './Content/FirstQuery';
@@ -316,7 +316,7 @@ export default function DocsPage() {
         <div className='mx-auto flex max-w-content items-center justify-between gap-6 px-8 py-3.5'>
           <div className='flex items-center gap-4'>
             <a
-              href='#'
+              href={URL_LANDING_PAGE}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -371,7 +371,7 @@ export default function DocsPage() {
           <div className='flex items-center gap-8'>
             <a
               key={'Home'}
-              href={'/home'}
+              href={URL_LANDING_PAGE}
               style={{
                 fontSize: 13,
                 color: TEXT_SECONDARY,
