@@ -21,21 +21,21 @@ export default function CitingFredPage() {
       </Heading>
       <p>
         Cite the relevant underlying paper when your analysis depends on a
-        specific FRED component. Cite the umbrella thesis when discussing
-        FRED as a system or when citing the CS-RAG architecture itself.
+        specific FRED component. Cite the umbrella thesis when discussing FRED
+        as a system or when citing the CS-RAG architecture itself.
       </p>
       <ul>
         <li>
-          If you use the harvest cost surrogate's predictions, cite the
-          harvest cost paper.
+          If you use the harvest cost surrogate's predictions, cite the harvest
+          cost paper.
         </li>
         <li>
           If you use the transport circuity raster or analysis, cite the
           transport paper.
         </li>
         <li>
-          If you use the fire-aware Pareto framework or the leverage
-          analysis, cite the fire procurement paper.
+          If you use the fire-aware Pareto framework or the leverage analysis,
+          cite the fire procurement paper.
         </li>
         <li>
           If you use FRED as a workflow tool or reference the agentic
@@ -47,18 +47,18 @@ export default function CitingFredPage() {
         Citing FRED as a system
       </Heading>
       <p>
-        For citing FRED as a software tool or decision-support system, use
-        the thesis as the primary reference:
+        For citing FRED as a software tool or decision-support system, use the
+        thesis as the primary reference:
       </p>
       <CodeBlock
         lang='bash'
         filename='BibTeX'
-        code={`@phdthesis{bandivadekar2026fred,
+        code={`@mastersthesis{bandivadekar2026fred,
   author = {Bandivadekar, Aunsh},
   title  = {Agentic Decision Support via Spatial Prediction Layers
            for Forest Biomass Procurement in California},
-  year   = {2026},
-  type   = {Master's thesis}
+  school = {University of California, Davis},
+  year   = {2026}
 }`}
       />
 
@@ -66,10 +66,9 @@ export default function CitingFredPage() {
         Citing individual layers
       </Heading>
       <p>
-        For specific prediction layers, cite the relevant paper. The
-        canonical references are listed below. Pre-print drafts and
-        published versions are accessible through the{' '}
-        <a href='/'>FRED landing page</a>.
+        For specific prediction layers, cite the relevant paper. The canonical
+        references are listed below. Pre-print drafts and published versions are
+        accessible through the <a href='/'>FRED landing page</a>.
       </p>
 
       <Heading id='transport-cite' level={3}>
@@ -78,13 +77,26 @@ export default function CitingFredPage() {
       <CodeBlock
         lang='bash'
         filename='BibTeX'
-        code={`@article{bandivadekar2025transport,
-  author  = {Bandivadekar A., Yeo B., and Marvinney E.},
-  title   = {An Empirical Transport Circuity Model for
-            Forest Biomass Procurement},
-  journal = {Journal of Transport Geography},
-  year    = {2025},
-  note    = {Submitted}
+        code={`@unpublished{bandivadekar2026transport,
+  author = {Bandivadekar, A., Yeo, B. L., Marvinney, E.},
+  title  = {Characterizing Road Network Circuity Across
+           Diverse Topography},
+  year   = {2026},
+  note   = {Manuscript submitted for publication; under review}
+}`}
+      />
+      <Heading id='fire-cite' level={3}>
+        Fire-aware Pareto framework
+      </Heading>
+      <CodeBlock
+        lang='bash'
+        filename='BibTeX'
+        code={`@unpublished{bandivadekar2026fire,
+        author = {Bandivadekar, A. and Yeo, B. L.},
+        title  = {Fire-Aware Pareto Framework for Multi-Objective
+           Forest Biomass Procurement},
+        note   = {Forthcoming}
+        year   = {2026},
 }`}
       />
 
@@ -95,25 +107,30 @@ export default function CitingFredPage() {
         lang='bash'
         filename='BibTeX'
         code={`@inproceedings{bandivadekar2026csrag,
-  author    = {Bandivadekar A},
-  title     = {Compositional Spatial RAG: An Agentic Architecture
+        author    = {Bandivadekar A, Yeo B.L., Ahamed Md, Li L},
+        title     = {Compositional Spatial RAG: An Agentic Architecture
               for Spatial Decision Support},
-  booktitle = {Forthcoming},
-  year      = {2026}
+        note     = {Forthcoming},
+        year      = {2026}
 }`}
       />
 
       <Heading id='acknowledgments' level={2}>
         Acknowledgments
       </Heading>
-      <p>If FRED contributed materially to your work, a brief acknowledgment is appreciated. Example wording:</p>
+      <p>
+        If FRED contributed materially to your work, a brief acknowledgment is
+        appreciated. Example wording:
+      </p>
       <Callout kind='info'>
-        <em>"Procurement analysis was conducted using FRED, developed by
-        Bandivadekar et al."</em>
+        <em>
+          "Procurement analysis was conducted using FRED, developed by
+          Bandivadekar et al."
+        </em>
       </Callout>
       <p>
-        For policy reports or industry publications where formal citation
-        is less common, please at least name FRED and link to{' '}
+        For policy reports or industry publications where formal citation is
+        less common, please at least name FRED and link to{' '}
         <a href='https://biofred.us'>biofred.us</a>.
       </p>
     </>
