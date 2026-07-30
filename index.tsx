@@ -389,7 +389,7 @@ export default function DocsPage() {
             </a>
             <a
               href={URL_DASHBOARD_PAGE}
-              className='rounded-btn bg-accent px-3.5 py-2 font-mono text-caption uppercase tracking-[0.04em] text-canvas no-underline'
+              className='rounded-btn bg-primary px-3.5 py-2 font-mono text-caption uppercase tracking-[0.04em] text-canvas no-underline'
             >
               Dashboard
             </a>
@@ -459,7 +459,7 @@ export default function DocsPage() {
             const items = PAGES.filter(p => p.section === section);
             return (
               <div key={section} className='mb-6'>
-                <div className='mb-2.5 pl-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-tertiary-soft'>
+                <div className='mb-3 pl-2.5 font-mono text-caption uppercase tracking-[0.12em] text-gold'>
                   {section}
                 </div>
                 {items.map(item => {
@@ -468,7 +468,7 @@ export default function DocsPage() {
                     <a
                       key={item.slug}
                       href={`#${item.slug}`}
-                      className={`-ml-2.5 block rounded-btn border-l-2 py-1.5 pl-2.5 text-[13px] leading-snug no-underline transition-colors hover:bg-[rgba(138,171,135,0.04)] hover:text-primary ${
+                      className={`-ml-2.5 block rounded-btn border-l-2 py-1.5 pl-2.5 text-[14px] tracking-brand leading-snug no-underline transition-colors hover:bg-[rgba(138,171,135,0.04)] hover:text-primary ${
                         isActive
                           ? '-ml-3 border-accent bg-accent/[0.06] pl-3 text-primary'
                           : 'border-transparent text-secondary-warm'
@@ -490,12 +490,12 @@ export default function DocsPage() {
             {prevPage ? (
               <a
                 href={`#${prevPage.slug}`}
-                className='rounded-btn border border-edge-soft bg-surface-deep p-5 text-primary no-underline transition-colors hover:border-edge-soft-strong'
+                className='rounded-card border border-edge-soft p-5 text-primary no-underline transition-colors hover:border-edge-soft-strong'
               >
-                <div className='mb-2 font-mono text-[10px] tracking-[0.12em] text-tertiary-soft'>
+                <div className='mb-2 font-mono text-caption tracking-[0.12em] text-gold'>
                   ← PREVIOUS
                 </div>
-                <div className='text-[15px] font-medium'>{prevPage.label}</div>
+                <div className='text-[17px] font-normal tracking-brand'>{prevPage.label}</div>
               </a>
             ) : (
               <div />
@@ -503,12 +503,12 @@ export default function DocsPage() {
             {nextPage ? (
               <a
                 href={`#${nextPage.slug}`}
-                className='rounded-btn border border-edge-soft bg-surface-deep p-5 text-right text-primary no-underline transition-colors hover:border-edge-soft-strong'
+                className='rounded-card border border-edge-soft p-5 text-right text-primary no-underline transition-colors hover:border-edge-soft-strong'
               >
-                <div className='mb-2 font-mono text-[10px] tracking-[0.12em] text-tertiary-soft'>
+                <div className='mb-2 font-mono text-caption tracking-[0.12em] text-gold'>
                   NEXT →
                 </div>
-                <div className='text-[15px] font-medium'>{nextPage.label}</div>
+                <div className='text-[17px] font-normal tracking-brand'>{nextPage.label}</div>
               </a>
             ) : (
               <div />
@@ -517,7 +517,7 @@ export default function DocsPage() {
         </main>
 
         <aside className='hidden self-start pt-4 xl:sticky xl:top-20 xl:block xl:max-h-[calc(100vh-100px)] xl:overflow-y-auto'>
-          <div className='mb-3.5 font-mono text-[10px] uppercase tracking-[0.12em] text-tertiary-soft'>
+          <div className='mb-3.5 font-mono text-caption uppercase tracking-[0.12em] text-gold'>
             On this page
           </div>
           {currentPage.toc.map(t => {
@@ -537,8 +537,8 @@ export default function DocsPage() {
             );
           })}
 
-          <div className='mt-8 rounded-btn border border-edge-soft bg-accent/[0.04] p-3.5'>
-            <div className='mb-1.5 font-mono text-[10px] tracking-[0.1em] text-accent'>
+          <div className='mt-8 rounded-card border border-edge-soft p-4'>
+            <div className='mb-2 font-mono text-caption tracking-[0.1em] text-gold'>
               TRY IT
             </div>
             <p className='mb-2.5 text-xs leading-snug text-secondary-warm'>
@@ -546,7 +546,7 @@ export default function DocsPage() {
             </p>
             <a
               href='/chat'
-              className='inline-block text-xs font-medium text-primary no-underline'
+              className='inline-block font-mono text-caption uppercase tracking-[0.04em] text-gold no-underline'
             >
               Launch FRED
             </a>

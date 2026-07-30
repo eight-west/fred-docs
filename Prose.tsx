@@ -13,10 +13,12 @@ export const MONO =
 
 /* ---------------------------------------------------------------- Heading */
 
+// h2 carries a hairline rule and the editorial weight-400 voice; h3/h4 stay
+// medium so dense reference pages remain scannable.
 const HEADING_STYLES = {
-  2: 'mt-14 mb-4 pt-3 text-doc-h2 tracking-brand',
-  3: 'mt-9 mb-3 text-doc-h3 tracking-brand',
-  4: 'mt-6 mb-2 text-doc-h4 tracking-brand',
+  2: 'mt-16 mb-5 border-t border-edge-soft pt-8 text-subheading font-normal leading-subheading tracking-brand',
+  3: 'mt-10 mb-3 text-doc-h3 font-medium tracking-brand',
+  4: 'mt-6 mb-2 text-doc-h4 font-medium tracking-brand',
 } as const;
 
 type HeadingProps = {
@@ -30,7 +32,7 @@ export function Heading({ id, level, children }: HeadingProps) {
   return (
     <Tag
       id={id}
-      className={`group relative scroll-mt-20 font-medium text-primary ${HEADING_STYLES[level]}`}
+      className={`group relative scroll-mt-20 text-primary ${HEADING_STYLES[level]}`}
     >
       <a
         href={`#${id}`}
@@ -379,11 +381,12 @@ export function PageTitle({
 }) {
   return (
     <>
-      <nav className='mb-6 flex items-center gap-2 font-mono text-xs tracking-[0.06em] text-tertiary-soft'>
-        <a href='#introduction' className='text-tertiary-soft no-underline'>
+      <nav className='mb-6 flex items-center gap-3 font-mono text-caption uppercase tracking-[0.14em] text-tertiary-soft'>
+        <span aria-hidden className='block h-px w-6 bg-gold/60' />
+        <a href='#introduction' className='text-gold no-underline'>
           DOCS
         </a>
-        <span>/</span>
+        <span className='opacity-40'>/</span>
         <span className='text-secondary-warm'>{eyebrow}</span>
       </nav>
       <h1 className='m-0 mb-5 text-doc-h1 font-normal leading-heading tracking-brand text-primary'>
