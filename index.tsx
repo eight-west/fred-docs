@@ -331,10 +331,10 @@ export default function DocsPage() {
               FRED
               <span
                 style={{
-                  fontSize: 10,
-                  padding: '2px 6px',
+                  fontSize: 11,
+                  padding: '2px 7px',
                   border: `1px solid ${BORDER_STRONG}`,
-                  borderRadius: 4,
+                  borderRadius: 3.6,
                   color: 'rgba(138,171,135,0.8)',
                   letterSpacing: '0.06em',
                   textTransform: 'uppercase'
@@ -349,7 +349,7 @@ export default function DocsPage() {
 
           <button
             onClick={() => setSearchOpen(true)}
-            className='flex min-w-[280px] cursor-pointer items-center gap-2.5 rounded-lg border border-edge-soft bg-[rgba(8,14,8,0.7)] px-3.5 py-1.5 text-[13px] text-tertiary-soft transition-colors hover:border-edge-soft-strong'
+            className='flex min-w-[280px] cursor-pointer items-center gap-2.5 rounded-btn border border-edge-soft bg-[rgba(8,14,8,0.7)] px-3.5 py-1.5 text-[13px] text-tertiary-soft transition-colors hover:border-edge-soft-strong'
           >
             <svg
               width='14'
@@ -363,7 +363,7 @@ export default function DocsPage() {
               <path d='M14 14l4 4' strokeLinecap='round' />
             </svg>
             <span className='flex-1 text-left'>Search docs...</span>
-            <span className='rounded bg-[rgba(138,171,135,0.08)] px-1.5 py-0.5 font-mono text-[10px] text-tertiary-soft'>
+            <span className='rounded-btn bg-[rgba(138,171,135,0.08)] px-1.5 py-0.5 font-mono text-[10px] text-tertiary-soft'>
               ⌘K
             </span>
           </button>
@@ -372,8 +372,8 @@ export default function DocsPage() {
             <a
               key={'Home'}
               href={URL_LANDING_PAGE}
+              className='font-mono text-caption'
               style={{
-                fontSize: 13,
                 color: TEXT_SECONDARY,
                 textDecoration: 'none',
                 transition: 'color 0.2s'
@@ -389,7 +389,7 @@ export default function DocsPage() {
             </a>
             <a
               href={URL_DASHBOARD_PAGE}
-              className='rounded-lg bg-primary px-3.5 py-1.5 text-[13px] font-medium text-canvas-deep no-underline'
+              className='rounded-btn bg-accent px-3.5 py-2 font-mono text-caption uppercase tracking-[0.04em] text-canvas no-underline'
             >
               Dashboard
             </a>
@@ -404,7 +404,7 @@ export default function DocsPage() {
         >
           <div
             onClick={e => e.stopPropagation()}
-            className='w-full max-w-[560px] overflow-hidden rounded-xl border border-edge-soft-strong bg-surface-deep'
+            className='w-full max-w-[560px] overflow-hidden rounded-btn border border-edge-soft-strong bg-surface-deep'
           >
             <div className='flex items-center gap-3 border-b border-edge-soft px-5 py-4'>
               <svg
@@ -425,7 +425,7 @@ export default function DocsPage() {
                 placeholder='Search documentation...'
                 className='flex-1 border-none bg-transparent text-[15px] text-primary outline-none'
               />
-              <span className='rounded bg-[rgba(138,171,135,0.08)] px-2 py-0.5 font-mono text-[10px] text-tertiary-soft'>
+              <span className='rounded-btn bg-[rgba(138,171,135,0.08)] px-2 py-0.5 font-mono text-[10px] text-tertiary-soft'>
                 ESC
               </span>
             </div>
@@ -468,7 +468,7 @@ export default function DocsPage() {
                     <a
                       key={item.slug}
                       href={`#${item.slug}`}
-                      className={`-ml-2.5 block rounded-md border-l-2 py-1.5 pl-2.5 text-[13px] leading-snug no-underline transition-colors hover:bg-[rgba(138,171,135,0.04)] hover:text-primary ${
+                      className={`-ml-2.5 block rounded-btn border-l-2 py-1.5 pl-2.5 text-[13px] leading-snug no-underline transition-colors hover:bg-[rgba(138,171,135,0.04)] hover:text-primary ${
                         isActive
                           ? '-ml-3 border-accent bg-accent/[0.06] pl-3 text-primary'
                           : 'border-transparent text-secondary-warm'
@@ -490,7 +490,7 @@ export default function DocsPage() {
             {prevPage ? (
               <a
                 href={`#${prevPage.slug}`}
-                className='rounded-lg border border-edge-soft bg-surface-deep p-5 text-primary no-underline transition-colors hover:border-edge-soft-strong'
+                className='rounded-btn border border-edge-soft bg-surface-deep p-5 text-primary no-underline transition-colors hover:border-edge-soft-strong'
               >
                 <div className='mb-2 font-mono text-[10px] tracking-[0.12em] text-tertiary-soft'>
                   ← PREVIOUS
@@ -503,7 +503,7 @@ export default function DocsPage() {
             {nextPage ? (
               <a
                 href={`#${nextPage.slug}`}
-                className='rounded-lg border border-edge-soft bg-surface-deep p-5 text-right text-primary no-underline transition-colors hover:border-edge-soft-strong'
+                className='rounded-btn border border-edge-soft bg-surface-deep p-5 text-right text-primary no-underline transition-colors hover:border-edge-soft-strong'
               >
                 <div className='mb-2 font-mono text-[10px] tracking-[0.12em] text-tertiary-soft'>
                   NEXT →
@@ -537,7 +537,7 @@ export default function DocsPage() {
             );
           })}
 
-          <div className='mt-8 rounded-lg border border-edge-soft bg-accent/[0.04] p-3.5'>
+          <div className='mt-8 rounded-btn border border-edge-soft bg-accent/[0.04] p-3.5'>
             <div className='mb-1.5 font-mono text-[10px] tracking-[0.1em] text-accent'>
               TRY IT
             </div>

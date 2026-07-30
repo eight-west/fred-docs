@@ -14,9 +14,9 @@ export const MONO =
 /* ---------------------------------------------------------------- Heading */
 
 const HEADING_STYLES = {
-  2: 'mt-14 mb-4 pt-3 text-doc-h2 tracking-[-0.02em]',
-  3: 'mt-9 mb-3 text-doc-h3 tracking-[-0.01em]',
-  4: 'mt-6 mb-2 text-doc-h4',
+  2: 'mt-14 mb-4 pt-3 text-doc-h2 tracking-brand',
+  3: 'mt-9 mb-3 text-doc-h3 tracking-brand',
+  4: 'mt-6 mb-2 text-doc-h4 tracking-brand',
 } as const;
 
 type HeadingProps = {
@@ -48,7 +48,7 @@ export function Heading({ id, level, children }: HeadingProps) {
 
 export function InlineCode({ children }: { children: ReactNode }) {
   return (
-    <code className='rounded border border-edge-soft bg-[rgba(138,171,135,0.08)] px-1.5 py-px font-mono text-[0.88em] text-primary'>
+    <code className='rounded-btn border border-edge-soft bg-[rgba(138,171,135,0.08)] px-1.5 py-px font-mono text-[0.88em] text-primary'>
       {children}
     </code>
   );
@@ -74,14 +74,14 @@ export function CodeBlock({ lang, code, filename }: CodeBlockProps) {
   const tokens = highlight(code, lang);
 
   return (
-    <div className='relative my-5 overflow-hidden rounded-lg border border-edge-soft bg-[rgba(8,14,8,0.7)]'>
+    <div className='relative my-5 overflow-hidden rounded-btn border border-edge-soft bg-[rgba(8,14,8,0.7)]'>
       <div className='flex items-center justify-between border-b border-edge-soft px-3.5 py-2 font-mono text-[11px]'>
         <span className='tracking-[0.06em] text-tertiary-soft'>
           {filename ? `${filename}` : lang}
         </span>
         <button
           onClick={copy}
-          className={`cursor-pointer rounded border-none bg-transparent px-1.5 py-0.5 font-mono text-[11px] transition-colors ${
+          className={`cursor-pointer rounded-btn border-none bg-transparent px-1.5 py-0.5 font-mono text-[11px] transition-colors ${
             copied ? 'text-accent' : 'text-tertiary-soft hover:text-primary'
           }`}
         >
@@ -251,7 +251,7 @@ export function Callout({
   const styles = CALLOUT_STYLES[kind];
   return (
     <div
-      className={`my-5 rounded-lg border px-4 py-3.5 text-sm leading-relaxed text-primary ${styles.container}`}
+      className={`my-5 rounded-btn border px-4 py-3.5 text-sm leading-relaxed text-primary ${styles.container}`}
     >
       <div
         className={`mb-1.5 flex items-center gap-2 font-mono text-[10px] tracking-[0.12em] ${CALLOUT_LABEL_COLORS[kind]}`}
@@ -276,7 +276,7 @@ export type ParamRow = {
 
 export function ParamTable({ rows }: { rows: ParamRow[] }) {
   return (
-    <div className='my-5 overflow-hidden rounded-lg border border-edge-soft'>
+    <div className='my-5 overflow-hidden rounded-btn border border-edge-soft'>
       {rows.map((r, i) => (
         <div
           key={r.name}
@@ -329,7 +329,7 @@ export function EndpointHeader({
   path: string;
 }) {
   return (
-    <div className='my-4 flex items-center gap-3 rounded-lg border border-edge-soft bg-[rgba(8,14,8,0.6)] px-3.5 py-2.5 font-mono text-[13px]'>
+    <div className='my-4 flex items-center gap-3 rounded-btn border border-edge-soft bg-[rgba(8,14,8,0.6)] px-3.5 py-2.5 font-mono text-[13px]'>
       <span
         className={`min-w-[50px] font-semibold tracking-[0.06em] ${METHOD_COLORS[method]}`}
       >
@@ -386,10 +386,10 @@ export function PageTitle({
         <span>/</span>
         <span className='text-secondary-warm'>{eyebrow}</span>
       </nav>
-      <h1 className='m-0 mb-5 text-display font-medium leading-tight tracking-[-0.025em] text-primary'>
+      <h1 className='m-0 mb-5 text-doc-h1 font-normal leading-heading tracking-brand text-primary'>
         {title}
       </h1>
-      <p className='mb-10 max-w-[680px] text-[17px] leading-relaxed text-secondary-warm'>
+      <p className='mb-10 max-w-[680px] text-[17px] leading-body tracking-brand text-secondary-warm'>
         {lede}
       </p>
     </>
