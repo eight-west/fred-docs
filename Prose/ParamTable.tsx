@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { MONO } from './tokens';
 
 export type ParamRow = {
   name: string;
