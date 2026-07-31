@@ -5,13 +5,6 @@ import { useScrollSpy } from './hooks/useScrollSpy';
 import { useHashSlug } from './hooks/useHashSlug';
 import { PAGES, SECTION_ORDER } from './registry';
 
-import {
-  BORDER_STRONG,
-  SERIF,
-  TEXT_PRIMARY,
-  TEXT_SECONDARY
-} from '../../Resources/Theme';
-
 
 /* ------------------------------------------------------------------- Hooks */
 
