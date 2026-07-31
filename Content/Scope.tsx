@@ -1,4 +1,4 @@
-import { Heading, Callout, InlineCode, PageTitle } from '../Prose';
+import { Heading, Callout, PageTitle } from '../Prose';
 
 export const scopeToc = [
   { id: 'what-fred-handles-well', label: 'What FRED handles well' },
