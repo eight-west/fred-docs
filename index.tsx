@@ -86,22 +86,10 @@ export default function DocsPage() {
 
           <div className='flex items-center gap-8'>
             <a
-              key={'Home'}
               href={URL_LANDING_PAGE}
-              className='font-mono text-caption'
-              style={{
-                color: TEXT_SECONDARY,
-                textDecoration: 'none',
-                transition: 'color 0.2s'
-              }}
-              onMouseOver={e =>
-                (e.currentTarget.style.color = TEXT_PRIMARY)
-              }
-              onMouseOut={e =>
-                (e.currentTarget.style.color = TEXT_SECONDARY)
-              }
+              className='font-mono text-caption text-secondary no-underline transition-colors hover:text-primary'
             >
-              {'Home'}
+              Home
             </a>
             <a
               href={URL_DASHBOARD_PAGE}
