@@ -1,4 +1,4 @@
-import { Heading, Callout, InlineCode, PageTitle } from '../Prose';
+import { Heading, Callout, PageTitle } from '../Prose';
 
 export const harvestCostMethodToc = [
   { id: 'what-it-replaces', label: 'What it replaces' },
