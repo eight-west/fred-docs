@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { URL_DASHBOARD_PAGE, URL_LANDING_PAGE } from '../../Resources/Constants';
+import { PAGES, SECTION_ORDER } from './registry';
 
 import IntroductionPage, { introductionToc } from './Content/Introduction';
 import FirstQueryPage, { firstQueryToc } from './Content/FirstQuery';
