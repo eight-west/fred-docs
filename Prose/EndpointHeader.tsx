@@ -1,5 +1,3 @@
-import { MONO } from './tokens';
-
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 const METHOD_COLORS: Record<HttpMethod, string> = {
