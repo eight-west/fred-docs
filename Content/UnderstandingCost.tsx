@@ -1,4 +1,4 @@
-import { Heading, Callout, InlineCode, PageTitle } from '../Prose';
+import { Heading, Callout, PageTitle } from '../Prose';
 
 export const understandingCostToc = [
   { id: 'what-the-number-means', label: 'What the number means' },
