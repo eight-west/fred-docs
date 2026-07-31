@@ -6,10 +6,6 @@ import { useHashSlug } from './hooks/useHashSlug';
 import { PAGES, SECTION_ORDER } from './registry';
 
 
-/* ------------------------------------------------------------------- Hooks */
-
-/* --------------------------------------------------------------- Main page */
-
 export default function DocsPage() {
   const currentSlug = useHashSlug('introduction');
   const currentPage = PAGES.find((p) => p.slug === currentSlug) ?? PAGES[0];
