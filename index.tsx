@@ -52,29 +52,10 @@ export default function DocsPage() {
           <div className='flex items-center gap-4'>
             <a
               href={URL_LANDING_PAGE}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-                fontSize: 15,
-                color: TEXT_PRIMARY,
-                textDecoration: 'none',
-                fontWeight: 500,
-                fontFamily: SERIF
-              }}
+              className='flex items-center gap-2 font-serif text-[15px] font-medium text-primary no-underline'
             >
               FRED
-              <span
-                style={{
-                  fontSize: 11,
-                  padding: '2px 7px',
-                  border: `1px solid ${BORDER_STRONG}`,
-                  borderRadius: 3.6,
-                  color: 'rgba(138,171,135,0.8)',
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase'
-                }}
-              >
+              <span className='rounded-tag border border-edge-strong px-[7px] py-0.5 text-[11px] uppercase tracking-[0.06em] text-[rgba(138,171,135,0.8)]'>
                 Beta
               </span>
             </a>
