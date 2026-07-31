@@ -7,7 +7,8 @@ import { PAGES, SECTION_ORDER } from './registry';
 
 
 export default function DocsPage() {
-  const currentSlug = useHashSlug('introduction');
+  const pageSlugs = useMemo(() => PAGES.map(p => p.slug), []);
+  const currentSlug = useHashSlug('introduction', pageSlugs);
   const currentPage = PAGES.find((p) => p.slug === currentSlug) ?? PAGES[0];
   const tocIds = useMemo(() => currentPage.toc.map((t) => t.id), [currentPage]);
   const activeAnchor = useScrollSpy(tocIds);
