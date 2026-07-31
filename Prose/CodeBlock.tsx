@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { MONO } from './tokens';
 import { highlight } from './highlight';
 
 type CodeBlockProps = {
