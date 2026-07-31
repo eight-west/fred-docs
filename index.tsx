@@ -48,7 +48,12 @@ import FireMethodPage, { fireMethodToc } from './Content/FireMethod';
 import GlossaryPage, { glossaryToc } from './Content/Glossary';
 import FAQPage, { faqToc } from './Content/Faq';
 import CitingFredPage, { citingFredToc } from './Content/CitingFred';
-import { BORDER_STRONG, SERIF, TEXT_PRIMARY, TEXT_SECONDARY } from '../Landing';
+import {
+  BORDER_STRONG,
+  SERIF,
+  TEXT_PRIMARY,
+  TEXT_SECONDARY
+} from '../../Resources/Theme';
 
 /* ----------------------------------------------------------- Page registry */
 
