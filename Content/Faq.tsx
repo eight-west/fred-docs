@@ -163,7 +163,7 @@ export default function FAQPage() {
         How do I cite FRED in a paper?
       </Heading>
       <p>
-        See <a href='#citing-fred'>Citing FRED</a> for the recommended
+        See <DocLink to='citing-fred'>Citing FRED</DocLink> for the recommended
         citations. Cite the relevant prediction layer paper for specific
         methodology, or the umbrella thesis when referencing FRED as a
         system.
