@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 type PageTitleProps = {
   eyebrow: string;
   title: string;
