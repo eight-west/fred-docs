@@ -50,6 +50,7 @@ export type PageEntry = {
   slug: string;
   label: string;
   section: string;
+  description: string;
   Component: () => JSX.Element;
   toc: { id: string; label: string }[];
 };
