@@ -19,7 +19,7 @@ export function DocsPager({ prev, next }: DocsPagerProps) {
             &#8592; PREVIOUS
           </div>
           <div className='text-[17px] font-normal tracking-brand'>{prev.label}</div>
-        </a>
+        </Link>
       ) : (
         <div />
       )}
