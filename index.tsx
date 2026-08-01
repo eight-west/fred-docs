@@ -3,7 +3,7 @@ import { SiteHeader } from '../../Shared/SiteHeader';
 import { useScrollSpy } from '../Hooks/useScrollSpy';
 import { useHashSlug } from '../Hooks/useHashSlug';
 import { PAGES, SECTION_ORDER } from './registry';
-import { DocsPager, DocsSearchButton, DocsSearchPalette, DocsSidebar } from './components';
+import { DocsPager, DocsSearchButton, DocsSearchPalette, DocsSidebar, DocsToc } from './components';
 
 
 export default function DocsPage() {
