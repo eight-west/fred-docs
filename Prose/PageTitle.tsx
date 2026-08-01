@@ -1,18 +1,24 @@
+type PageTitleProps = {
+  eyebrow: string;
+  title: string;
+  lede: string;
+  rootLabel?: string;
+  rootHref?: string;
+};
+
 export function PageTitle({
   eyebrow,
   title,
   lede,
-}: {
-  eyebrow: string;
-  title: string;
-  lede: string;
-}) {
+  rootLabel = 'DOCS',
+  rootHref = '#introduction'
+}: PageTitleProps) {
   return (
     <>
       <nav className='mb-6 flex items-center gap-3 font-mono text-caption uppercase tracking-[0.14em] text-tertiary-soft'>
         <span aria-hidden className='block h-px w-6 bg-gold/60' />
-        <a href='#introduction' className='text-gold no-underline'>
-          DOCS
+        <a href={rootHref} className='text-gold no-underline'>
+          {rootLabel}
         </a>
         <span className='opacity-40'>/</span>
         <span className='text-secondary-warm'>{eyebrow}</span>
