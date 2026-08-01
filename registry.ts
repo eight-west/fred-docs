@@ -211,6 +211,8 @@ export const PAGES: PageEntry[] = [
     slug: 'transport-method',
     label: 'Transport circuity model',
     section: 'Methodology',
+    description:
+      'How truck routing is modelled: the OSRM profile, the 445,000 sampled routes, and IDW interpolation between them.',
     Component: TransportMethodPage,
     toc: transportMethodToc,
   },
