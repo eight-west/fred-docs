@@ -3,6 +3,7 @@ export { Heading } from './Heading';
 export { InlineCode } from './InlineCode';
 export { CodeBlock } from './CodeBlock';
 export { Callout } from './Callout';
+export { DocLink } from './DocLink';
 export { ParamTable } from './ParamTable';
 export type { ParamRow } from './ParamTable';
 export { EndpointHeader } from './EndpointHeader';
