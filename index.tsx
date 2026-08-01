@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { SiteHeader } from '../../Shared/SiteHeader';
 import { useScrollSpy } from '../Hooks/useScrollSpy';
+import { useSearchPalette } from '../Hooks/useSearchPalette';
 import { useHashSlug } from '../Hooks/useHashSlug';
 import { PAGES } from './registry';
 import { DocsPager, DocsSearchButton, DocsSearchPalette, DocsSidebar, DocsToc,
