@@ -23,7 +23,7 @@ export function DocsSidebar({ currentSlug }: { currentSlug: string }) {
               )}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       ))}
