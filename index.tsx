@@ -39,7 +39,7 @@ export default function DocsPage() {
   const Content = currentPage.Component;
 
   return (
-    <div className='min-h-screen bg-canvas-deep text-primary'>
+    <div className='min-h-screen bg-canvas text-primary'>
       <SiteHeader section='Docs'>
         <DocsSearchButton onOpen={openPalette} />
       </SiteHeader>
