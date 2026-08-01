@@ -126,6 +126,8 @@ export const PAGES: PageEntry[] = [
     slug: 'fire-tradeoffs',
     label: 'Fire-risk tradeoffs',
     section: 'Capabilities',
+    description:
+      'Trade feedstock cost against fire-risk reduction, read the Pareto curve, and find the leverage knee.',
     Component: FireTradeoffsPage,
     toc: fireTradeoffsToc,
   },
