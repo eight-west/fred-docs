@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import type { PageEntry } from '../registry';
+import { docsPath } from '../docsPath';
 
 type DocsPagerProps = {
   prev: PageEntry | null;
