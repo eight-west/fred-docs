@@ -42,7 +42,7 @@ export default function MethodologyOverviewPage() {
           decision framework built on top of an external authoritative
           dataset. FRED's fire-aware Pareto framework wraps the USDA FSim
           burn probability raster this way. See{' '}
-          <a href='#fire-method'>Fire-aware Pareto framework</a>.
+          <DocLink to='fire-method'>Fire-aware Pareto framework</DocLink>.
         </li>
       </ul>
       <p>
