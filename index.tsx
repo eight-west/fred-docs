@@ -20,19 +20,7 @@ export default function DocsPage() {
   const nextPage =
     currentIndex < PAGES.length - 1 ? PAGES[currentIndex + 1] : null;
 
-  const [searchOpen, setSearchOpen] = useState(false);
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        setSearchOpen(true);
-      }
-      if (e.key === 'Escape') setSearchOpen(false);
-    }
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  const { open: searchOpen, openPalette, closePalette } = useSearchPalette();
 
   const Content = currentPage.Component;
 
