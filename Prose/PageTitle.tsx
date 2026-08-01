@@ -19,9 +19,9 @@ export function PageTitle({
     <>
       <nav className='mb-6 flex items-center gap-3 font-mono text-caption uppercase tracking-[0.14em] text-tertiary-soft'>
         <span aria-hidden className='block h-px w-6 bg-gold/60' />
-        <a href={rootHref} className='text-gold no-underline'>
+        <Link to={rootHref} className='text-gold no-underline'>
           {rootLabel}
-        </a>
+        </Link>
         <span className='opacity-40'>/</span>
         <span className='text-secondary-warm'>{eyebrow}</span>
       </nav>
