@@ -240,6 +240,8 @@ export const PAGES: PageEntry[] = [
     slug: 'faq',
     label: 'FAQ',
     section: 'Reference',
+    description:
+      'Common questions about what FRED covers, how accurate it is, what it is for, and how to cite it.',
     Component: FAQPage,
     toc: faqToc,
   },
