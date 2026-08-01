@@ -155,6 +155,8 @@ export const PAGES: PageEntry[] = [
     slug: 'understanding-cost',
     label: 'Cost: $/BDT and LCOE',
     section: 'Understanding the numbers',
+    description:
+      'What $/BDT and LCOE mean in a FRED answer, what drives them, and how they compare with published figures.',
     Component: UnderstandingCostPage,
     toc: understandingCostToc,
   },
