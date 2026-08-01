@@ -17,7 +17,7 @@ export function PageTitle({
 }: PageTitleProps) {
   return (
     <>
-      <nav className='mb-6 flex items-center gap-3 font-mono text-caption uppercase tracking-[0.14em] text-tertiary-soft'>
+      <nav className='fred-crumb mb-6 flex items-center gap-3 font-mono text-caption uppercase tracking-[0.14em] text-tertiary-soft'>
         <span aria-hidden className='block h-px w-6 bg-gold/60' />
         <Link to={rootHref} className='text-gold no-underline'>
           {rootLabel}
