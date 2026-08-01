@@ -5,6 +5,7 @@ import { useScrollSpy } from '../Hooks/useScrollSpy';
 import { useSearchPalette } from '../Hooks/useSearchPalette';
 import { useHashSlug } from '../Hooks/useHashSlug';
 import { PAGES } from './registry';
+import { DOCS_DEFAULT_SLUG, docsPath } from './docsPath';
 import { DocsPager, DocsSearchButton, DocsSearchPalette, DocsSidebar, DocsToc,
   TryItCard } from './components';
 
