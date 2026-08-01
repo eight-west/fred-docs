@@ -83,7 +83,7 @@ export default function DocsPage() {
             </a>
             <a
               href={URL_DASHBOARD_PAGE}
-              className='rounded-btn bg-primary px-3.5 py-2 font-mono text-caption uppercase tracking-[0.04em] text-canvas no-underline'
+              className='rounded-full bg-primary px-3.5 py-2 font-mono text-caption uppercase tracking-[0.04em] text-canvas no-underline'
             >
               Dashboard
             </a>
