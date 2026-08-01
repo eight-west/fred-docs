@@ -108,6 +108,8 @@ export const PAGES: PageEntry[] = [
     slug: 'facility-siting',
     label: 'Facility siting',
     section: 'Capabilities',
+    description:
+      'Ask FRED where to site a biomass facility: how to phrase the question, what comes back, and how the ranking is decided.',
     Component: FacilitySitingPage,
     toc: facilitySitingToc,
   },
