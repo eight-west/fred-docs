@@ -25,6 +25,8 @@ export default function DocsPage() {
   const { open: searchOpen, openPalette, closePalette } = useSearchPalette();
   useHashScroll();
 
+  if (!matched) return <Navigate to={docsPath(DOCS_DEFAULT_SLUG)} replace />;
+
   const Content = currentPage.Component;
 
   return (
