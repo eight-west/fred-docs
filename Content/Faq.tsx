@@ -96,7 +96,7 @@ export default function FAQPage() {
         and mean absolute error under $2.10 per BDT. For typical California
         cluster configurations within the C-BREC catalog, FRED's
         predictions are dependable to within a few dollars per BDT. See{' '}
-        <a href='#harvest-cost-method'>Harvest cost surrogate</a> for the
+        <DocLink to='harvest-cost-method'>Harvest cost surrogate</DocLink> for the
         full validation details.
       </p>
 
