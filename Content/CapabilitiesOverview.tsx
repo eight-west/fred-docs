@@ -33,7 +33,7 @@ export default function CapabilitiesOverviewPage() {
           biomass is available in a region, and what does it cost?
         </li>
         <li>
-          <a href='#fire-tradeoffs'>Fire-risk tradeoff exploration</a>: how
+          <DocLink to='fire-tradeoffs'>Fire-risk tradeoff exploration</DocLink>: how
           does prioritizing fire risk change the procurement picture?
         </li>
         <li>
