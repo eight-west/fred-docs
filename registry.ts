@@ -117,6 +117,8 @@ export const PAGES: PageEntry[] = [
     slug: 'regional-supply',
     label: 'Regional supply analysis',
     section: 'Capabilities',
+    description:
+      'Estimate how much biomass a region can supply each year, at county, watershed or custom-radius aggregation.',
     Component: RegionalSupplyPage,
     toc: regionalSupplyToc,
   },
