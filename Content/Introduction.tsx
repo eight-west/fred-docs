@@ -133,7 +133,7 @@ export default function IntroductionPage() {
           phrase questions effectively.
         </li>
         <li>
-          Read <a href='#reading-answers'>Reading FRED's answers</a> to
+          Read <DocLink to='reading-answers'>Reading FRED's answers</DocLink> to
           understand what each part of the response means.
         </li>
       </ul>
