@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { filterSearch } from './search';
 import { SiteHeader } from '../../Shared/SiteHeader';
 import { useScrollSpy } from '../Hooks/useScrollSpy';
 import { useHashSlug } from '../Hooks/useHashSlug';
