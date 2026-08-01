@@ -11,9 +11,9 @@ import { DocsPager, DocsSearchButton, DocsSearchPalette, DocsSidebar, DocsToc,
 
 
 export default function DocsPage() {
-  const pageSlugs = useMemo(() => PAGES.map(p => p.slug), []);
-  const currentSlug = useHashSlug('introduction', pageSlugs);
-  const currentPage = PAGES.find((p) => p.slug === currentSlug) ?? PAGES[0];
+  const { slug } = useParams<{ slug: string }>();
+  const matched = PAGES.find(p => p.slug === slug);
+  const currentPage = matched ?? PAGES[0];
   const tocIds = useMemo(() => currentPage.toc.map((t) => t.id), [currentPage]);
   const activeAnchor = useScrollSpy(tocIds);
 
