@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 import { PAGES, SECTION_ORDER } from '../registry';
 
 export function DocsSidebar({ currentSlug }: { currentSlug: string }) {
