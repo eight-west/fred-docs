@@ -88,6 +88,8 @@ export const PAGES: PageEntry[] = [
     slug: 'scope',
     label: "What FRED can and can't do",
     section: 'Getting started',
+    description:
+      'What FRED handles well, where its coverage is partial, what sits outside its scope, and what is on the roadmap.',
     Component: ScopePage,
     toc: scopeToc,
   },
