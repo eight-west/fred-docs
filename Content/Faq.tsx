@@ -1,4 +1,4 @@
-import { Heading, Callout, PageTitle } from '../Prose';
+import { Callout, DocLink, Heading, PageTitle } from '../Prose';
 
 export const faqToc = [
   { id: 'general', label: 'General' },
