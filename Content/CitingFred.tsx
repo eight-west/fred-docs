@@ -78,7 +78,7 @@ export default function CitingFredPage() {
         lang='bash'
         filename='BibTeX'
         code={`@unpublished{bandivadekar2026transport,
-  author = {Bandivadekar, A., Yeo, B. L., Marvinney, E.},
+  author = {Bandivadekar, A. and Yeo, B. L. and Marvinney, E.},
   title  = {Characterizing Road Network Circuity Across
            Diverse Topography},
   year   = {2026},
