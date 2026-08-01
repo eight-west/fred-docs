@@ -119,7 +119,7 @@ export default function IntroductionPage() {
         surrogate validated against FRCS, an empirical transport circuity
         model derived from 445,000 truck-profile routes, and a fire-aware
         Pareto framework built over USDA's burn probability data. See the{' '}
-        <a href='#methodology-overview'>Methodology</a> section for the
+        <DocLink to='methodology-overview'>Methodology</DocLink> section for the
         details.
       </p>
 
