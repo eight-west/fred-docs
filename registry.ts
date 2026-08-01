@@ -202,6 +202,8 @@ export const PAGES: PageEntry[] = [
     slug: 'harvest-cost-method',
     label: 'Harvest cost surrogate',
     section: 'Methodology',
+    description:
+      'The surrogate model that stands in for the harvest cost simulation: training data, two-stage architecture, and validation results.',
     Component: HarvestCostMethodPage,
     toc: harvestCostMethodToc,
   },
