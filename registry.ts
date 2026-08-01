@@ -61,6 +61,8 @@ export const PAGES: PageEntry[] = [
     slug: 'introduction',
     label: 'Introduction',
     section: 'Getting started',
+    description:
+      'What FRED is, the kind of question it answers, and how a conversational agent over spatial models differs from a GIS dashboard.',
     Component: IntroductionPage,
     toc: introductionToc,
   },
