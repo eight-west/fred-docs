@@ -27,6 +27,13 @@ export default function DocsPage() {
   const { open: searchOpen, openPalette, closePalette } = useSearchPalette();
   useHashScroll();
 
+  useDocumentMeta({
+    title: `${currentPage.label} \u2022 FRED Docs`,
+    description: currentPage.description,
+    canonical: `${SITE_ORIGIN}${docsPath(currentPage.slug)}`,
+    type: 'article'
+  });
+
   if (!matched) return <Navigate to={docsPath(DOCS_DEFAULT_SLUG)} replace />;
 
   const Content = currentPage.Component;
