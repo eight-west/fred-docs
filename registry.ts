@@ -135,6 +135,8 @@ export const PAGES: PageEntry[] = [
     slug: 'multi-year',
     label: 'Multi-year planning',
     section: 'Capabilities',
+    description:
+      'Plan procurement across several years, including the depletion model and the sawtooth pattern in the trajectory.',
     Component: MultiYearPage,
     toc: multiYearToc,
   },
