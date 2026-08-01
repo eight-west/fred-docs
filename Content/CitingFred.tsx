@@ -107,7 +107,7 @@ export default function CitingFredPage() {
         lang='bash'
         filename='BibTeX'
         code={`@inproceedings{bandivadekar2026csrag,
-        author    = {Bandivadekar A, Yeo B.L., Ahamed Md, Li L},
+        author    = {Bandivadekar, A. and Yeo, B. L. and Ahamed, Md. and Li, L.},
         title     = {Compositional Spatial RAG: An Agentic Architecture
               for Spatial Decision Support},
         note     = {Forthcoming},
