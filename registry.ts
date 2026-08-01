@@ -231,6 +231,8 @@ export const PAGES: PageEntry[] = [
     slug: 'glossary',
     label: 'Glossary',
     section: 'Reference',
+    description:
+      'Definitions of the terms FRED uses, from bone-dry tonne to sustainable annual yield.',
     Component: GlossaryPage,
     toc: glossaryToc,
   },
