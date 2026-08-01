@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { PAGES, SECTION_ORDER } from '../registry';
+import { docsPath } from '../docsPath';
 
 export function DocsSidebar({ currentSlug }: { currentSlug: string }) {
   return (
