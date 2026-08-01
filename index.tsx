@@ -54,25 +54,7 @@ export default function DocsPage() {
         </main>
 
         <aside className='hidden self-start pt-4 xl:sticky xl:top-20 xl:block xl:max-h-[calc(100vh-100px)] xl:overflow-y-auto'>
-          <div className='mb-3.5 font-mono text-caption uppercase tracking-[0.12em] text-gold'>
-            On this page
-          </div>
-          {currentPage.toc.map(t => {
-            const active = activeAnchor === t.id;
-            return (
-              <a
-                key={t.id}
-                href={`#${t.id}`}
-                className={`block border-l-2 py-1.5 pl-3 text-xs leading-snug no-underline transition-colors hover:text-primary ${
-                  active
-                    ? 'border-accent text-primary'
-                    : 'border-transparent text-tertiary-soft'
-                }`}
-              >
-                {t.label}
-              </a>
-            );
-          })}
+          <DocsToc entries={currentPage.toc} activeId={activeAnchor} />
 
           <div className='mt-8 rounded-card border border-edge-soft p-4'>
             <div className='mb-2 font-mono text-caption tracking-[0.1em] text-gold'>
