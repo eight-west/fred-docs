@@ -70,6 +70,8 @@ export const PAGES: PageEntry[] = [
     slug: 'first-query',
     label: 'Your first query',
     section: 'Getting started',
+    description:
+      'How to phrase a first question to FRED, what to include in it, and the mistakes that produce vague answers.',
     Component: FirstQueryPage,
     toc: firstQueryToc,
   },
