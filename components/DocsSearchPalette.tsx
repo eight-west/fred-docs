@@ -32,9 +32,9 @@ export function DocsSearchPalette({ onClose }: { onClose: () => void }) {
         </div>
         <div className='max-h-[360px] overflow-auto py-2'>
           {results.map(r => (
-            <a
+            <Link
               key={r.slug}
-              href={`#${r.slug}`}
+              to={docsPath(r.slug)}
               onClick={onClose}
               className='flex items-center gap-3 px-5 py-2.5 text-sm text-primary no-underline hover:bg-accent/[0.06]'
             >
