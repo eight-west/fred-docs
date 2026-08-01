@@ -95,8 +95,8 @@ export default function CitingFredPage() {
         author = {Bandivadekar, A. and Yeo, B. L.},
         title  = {Fire-Aware Pareto Framework for Multi-Objective
            Forest Biomass Procurement},
-        note   = {Forthcoming}
         year   = {2026},
+        note   = {Forthcoming}
 }`}
       />
 
