@@ -140,7 +140,7 @@ export default function IntroductionPage() {
       <p>If you want to understand the system first:</p>
       <ul>
         <li>
-          <a href='#capabilities-overview'>What FRED can do</a> walks through
+          <DocLink to='capabilities-overview'>What FRED can do</DocLink> walks through
           the kinds of questions FRED handles well.
         </li>
         <li>
