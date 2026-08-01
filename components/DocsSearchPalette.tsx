@@ -42,7 +42,7 @@ export function DocsSearchPalette({ onClose }: { onClose: () => void }) {
                 {r.section.toUpperCase()}
               </span>
               <span>{r.label}</span>
-            </a>
+            </Link>
           ))}
           {results.length === 0 && (
             <div className='p-5 text-center text-[13px] text-tertiary-soft'>
