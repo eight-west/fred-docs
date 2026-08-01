@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
 import { SiteHeader } from '../../Shared/SiteHeader';
 import { useScrollSpy } from '../Hooks/useScrollSpy';
 import { useSearchPalette } from '../Hooks/useSearchPalette';
