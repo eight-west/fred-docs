@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { URL_DASHBOARD_PAGE, URL_LANDING_PAGE } from '../../Resources/Constants';
 import { filterSearch } from './search';
+import { SiteHeader } from '../../Shared/SiteHeader';
 import { useScrollSpy } from '../Hooks/useScrollSpy';
 import { useHashSlug } from '../Hooks/useHashSlug';
 import { PAGES, SECTION_ORDER } from './registry';
