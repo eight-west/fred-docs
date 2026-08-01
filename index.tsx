@@ -38,59 +38,28 @@ export default function DocsPage() {
 
   return (
     <div className='min-h-screen bg-canvas-deep text-primary'>
-      <header className='sticky top-0 z-40 border-b border-edge-soft bg-canvas-deep/85 backdrop-blur-md'>
-        <div className='mx-auto flex max-w-content items-center justify-between gap-6 px-8 py-3.5'>
-          <div className='flex items-center gap-4'>
-            <a
-              href={URL_LANDING_PAGE}
-              className='flex items-center gap-2 font-serif text-[15px] font-medium text-primary no-underline'
-            >
-              FRED
-              <span className='rounded-tag border border-edge-strong px-[7px] py-0.5 text-[11px] uppercase tracking-[0.06em] text-[rgba(138,171,135,0.8)]'>
-                Beta
-              </span>
-            </a>
-            <span className='h-[18px] w-px bg-edge-soft-strong' />
-            <span className='text-sm text-secondary-warm'>Docs</span>
-          </div>
-
-          <button
-            onClick={() => setSearchOpen(true)}
-            className='flex min-w-[280px] cursor-pointer items-center gap-2.5 rounded-btn border border-edge-soft bg-[rgba(8,14,8,0.7)] px-3.5 py-1.5 text-[13px] text-tertiary-soft transition-colors hover:border-edge-soft-strong'
+      <SiteHeader section='Docs'>
+        <button
+          onClick={() => setSearchOpen(true)}
+          className='flex min-w-[280px] cursor-pointer items-center gap-2.5 rounded-btn border border-edge-soft bg-[rgba(8,14,8,0.7)] px-3.5 py-1.5 text-[13px] text-tertiary-soft transition-colors hover:border-edge-soft-strong'
+        >
+          <svg
+            width='14'
+            height='14'
+            viewBox='0 0 20 20'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='1.5'
           >
-            <svg
-              width='14'
-              height='14'
-              viewBox='0 0 20 20'
-              fill='none'
-              stroke='currentColor'
-              strokeWidth='1.5'
-            >
-              <circle cx='9' cy='9' r='6' />
-              <path d='M14 14l4 4' strokeLinecap='round' />
-            </svg>
-            <span className='flex-1 text-left'>Search docs...</span>
-            <span className='rounded-btn bg-[rgba(138,171,135,0.08)] px-1.5 py-0.5 font-mono text-[10px] text-tertiary-soft'>
-              ⌘K
-            </span>
-          </button>
-
-          <div className='flex items-center gap-8'>
-            <a
-              href={URL_LANDING_PAGE}
-              className='font-mono text-caption text-secondary no-underline transition-colors hover:text-primary'
-            >
-              Home
-            </a>
-            <a
-              href={URL_DASHBOARD_PAGE}
-              className='rounded-pill bg-primary px-3.5 py-2 font-mono text-caption uppercase tracking-[0.04em] text-canvas no-underline'
-            >
-              Dashboard
-            </a>
-          </div>
-        </div>
-      </header>
+            <circle cx='9' cy='9' r='6' />
+            <path d='M14 14l4 4' strokeLinecap='round' />
+          </svg>
+          <span className='flex-1 text-left'>Search docs...</span>
+          <span className='rounded-btn bg-[rgba(138,171,135,0.08)] px-1.5 py-0.5 font-mono text-[10px] text-tertiary-soft'>
+            ⌘K
+          </span>
+        </button>
+      </SiteHeader>
 
       {searchOpen && (
         <div
