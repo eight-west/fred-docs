@@ -37,7 +37,7 @@ export default function CapabilitiesOverviewPage() {
           does prioritizing fire risk change the procurement picture?
         </li>
         <li>
-          <a href='#multi-year'>Multi-year procurement planning</a>: how does
+          <DocLink to='multi-year'>Multi-year procurement planning</DocLink>: how does
           supply and cost evolve over a 10-year operating horizon?
         </li>
         <li>
