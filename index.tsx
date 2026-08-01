@@ -50,34 +50,7 @@ export default function DocsPage() {
         <main className='fred-doc-prose'>
           <Content />
 
-          <nav className='mt-20 grid grid-cols-2 gap-3 border-t border-edge-soft pt-8'>
-            {prevPage ? (
-              <a
-                href={`#${prevPage.slug}`}
-                className='rounded-card border border-edge-soft p-5 text-primary no-underline transition-colors hover:border-edge-soft-strong'
-              >
-                <div className='mb-2 font-mono text-caption tracking-[0.12em] text-gold'>
-                  ← PREVIOUS
-                </div>
-                <div className='text-[17px] font-normal tracking-brand'>{prevPage.label}</div>
-              </a>
-            ) : (
-              <div />
-            )}
-            {nextPage ? (
-              <a
-                href={`#${nextPage.slug}`}
-                className='rounded-card border border-edge-soft p-5 text-right text-primary no-underline transition-colors hover:border-edge-soft-strong'
-              >
-                <div className='mb-2 font-mono text-caption tracking-[0.12em] text-gold'>
-                  NEXT →
-                </div>
-                <div className='text-[17px] font-normal tracking-brand'>{nextPage.label}</div>
-              </a>
-            ) : (
-              <div />
-            )}
-          </nav>
+          <DocsPager prev={prevPage} next={nextPage} />
         </main>
 
         <aside className='hidden self-start pt-4 xl:sticky xl:top-20 xl:block xl:max-h-[calc(100vh-100px)] xl:overflow-y-auto'>
