@@ -43,59 +43,7 @@ export default function DocsPage() {
       </SiteHeader>
 
       {searchOpen && (
-        <div
-          onClick={() => setSearchOpen(false)}
-          className='fixed inset-0 z-[100] flex items-start justify-center bg-black/60 pt-24 backdrop-blur-[4px]'
-        >
-          <div
-            onClick={e => e.stopPropagation()}
-            className='w-full max-w-[560px] overflow-hidden rounded-btn border border-edge-soft-strong bg-surface-deep'
-          >
-            <div className='flex items-center gap-3 border-b border-edge-soft px-5 py-4'>
-              <svg
-                width='16'
-                height='16'
-                viewBox='0 0 20 20'
-                fill='none'
-                stroke='rgba(245,240,230,0.65)'
-                strokeWidth='1.5'
-              >
-                <circle cx='9' cy='9' r='6' />
-                <path d='M14 14l4 4' strokeLinecap='round' />
-              </svg>
-              <input
-                autoFocus
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                placeholder='Search documentation...'
-                className='flex-1 border-none bg-transparent text-[15px] text-primary outline-none'
-              />
-              <span className='rounded-btn bg-[rgba(138,171,135,0.08)] px-2 py-0.5 font-mono text-[10px] text-tertiary-soft'>
-                ESC
-              </span>
-            </div>
-            <div className='max-h-[360px] overflow-auto py-2'>
-              {filterSearch(search).map((r, i) => (
-                <a
-                  key={i}
-                  href={`#${r.slug}`}
-                  onClick={() => setSearchOpen(false)}
-                  className='flex items-center gap-3 px-5 py-2.5 text-sm text-primary no-underline hover:bg-accent/[0.06]'
-                >
-                  <span className='min-w-[110px] font-mono text-[10px] tracking-[0.08em] text-tertiary-soft'>
-                    {r.section.toUpperCase()}
-                  </span>
-                  <span>{r.label}</span>
-                </a>
-              ))}
-              {filterSearch(search).length === 0 && (
-                <div className='p-5 text-center text-[13px] text-tertiary-soft'>
-                  No results for "{search}"
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+        <DocsSearchPalette onClose={() => setSearchOpen(false)} />
       )}
 
       <div className='mx-auto grid max-w-content grid-cols-1 gap-6 px-5 pb-20 pt-6 md:grid-cols-[220px_minmax(0,1fr)] md:gap-12 md:px-8 md:pb-30 md:pt-8 xl:grid-cols-[240px_minmax(0,1fr)_200px]'>
