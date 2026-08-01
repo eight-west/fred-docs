@@ -41,7 +41,7 @@ export default function CapabilitiesOverviewPage() {
           supply and cost evolve over a 10-year operating horizon?
         </li>
         <li>
-          <a href='#comparing-locations'>Comparing locations</a>: which of
+          <DocLink to='comparing-locations'>Comparing locations</DocLink>: which of
           several candidate sites is better, and why?
         </li>
       </ul>
