@@ -193,6 +193,8 @@ export const PAGES: PageEntry[] = [
     slug: 'methodology-overview',
     label: 'Overview',
     section: 'Methodology',
+    description:
+      'The three spatial prediction layers behind FRED, the data sources they are built from, and how they compose into an answer.',
     Component: MethodologyOverviewPage,
     toc: methodologyOverviewToc,
   },
