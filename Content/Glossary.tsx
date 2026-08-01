@@ -43,7 +43,7 @@ export default function GlossaryPage() {
           { term: 'FRCS', def: 'Forest Residue Cost Simulator. A USDA Forest Service tool that computes harvest cost. FRED uses a learned surrogate of FRCS rather than running it in real time.' },
           { term: 'FSim', def: 'USDA Wildfire Simulator. The source of the burn probability raster FRED uses for fire-aware procurement.' },
           { term: 'GP / GPO / CHP', def: 'The three facility technology types FRED can model: Generating Plant, Generating Plant Oversized, and Combined Heat and Power. Each has different biomass demand per MW.' },
-          { term: 'Harvest cost surrogate', def: <>The XGBoost model that predicts FRCS harvest cost in approximately 0.2 ms per cluster. See <a href='#harvest-cost-method'>Harvest cost surrogate</a>.</> },
+          { term: 'Harvest cost surrogate', def: <>The XGBoost model that predicts FRCS harvest cost in approximately 0.2 ms per cluster. See <DocLink to='harvest-cost-method'>Harvest cost surrogate</DocLink>.</> },
           { term: 'IDW interpolation', def: 'Inverse Distance Weighted interpolation. The method FRED uses to extrapolate the transport circuity factor from 445,000 sampled OSRM routes to a continuous statewide raster.' },
           { term: 'LCOE', def: 'Levelized Cost of Energy. The per-MWh cost over a facility\'s operating life, including procurement, capex, and operations.' },
           { term: 'Leverage ratio', def: 'The ratio of fire-risk reduction to cost premium at a given alpha setting. Peaks at roughly 5.8x near alpha = 0.05 for most California regions.' }
