@@ -92,11 +92,11 @@ export default function CitingFredPage() {
         lang='bash'
         filename='BibTeX'
         code={`@unpublished{bandivadekar2026fire,
-        author = {Bandivadekar, A. and Yeo, B. L.},
-        title  = {Fire-Aware Pareto Framework for Multi-Objective
+  author = {Bandivadekar, A. and Yeo, B. L.},
+  title  = {Fire-Aware Pareto Framework for Multi-Objective
            Forest Biomass Procurement},
-        year   = {2026},
-        note   = {Forthcoming}
+  year   = {2026},
+  note   = {Forthcoming}
 }`}
       />
 
