@@ -144,7 +144,7 @@ export default function IntroductionPage() {
           the kinds of questions FRED handles well.
         </li>
         <li>
-          <a href='#methodology-overview'>Methodology</a> covers the research
+          <DocLink to='methodology-overview'>Methodology</DocLink> covers the research
           behind the predictions.
         </li>
       </ul>
