@@ -164,6 +164,8 @@ export const PAGES: PageEntry[] = [
     slug: 'understanding-supply',
     label: 'Supply: BDT/year',
     section: 'Understanding the numbers',
+    description:
+      'What BDT/year means, how sustainable annual yield is derived, and how to turn a MW target into a feedstock requirement.',
     Component: UnderstandingSupplyPage,
     toc: understandingSupplyToc,
   },
