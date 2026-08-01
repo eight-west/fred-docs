@@ -45,34 +45,7 @@ export default function DocsPage() {
       )}
 
       <div className='mx-auto grid max-w-content grid-cols-1 gap-6 px-5 pb-20 pt-6 md:grid-cols-[220px_minmax(0,1fr)] md:gap-12 md:px-8 md:pb-30 md:pt-8 xl:grid-cols-[240px_minmax(0,1fr)_200px]'>
-        <aside className='hidden self-start pt-4 md:sticky md:top-20 md:block md:max-h-[calc(100vh-100px)] md:overflow-y-auto'>
-          {SECTION_ORDER.map(section => {
-            const items = PAGES.filter(p => p.section === section);
-            return (
-              <div key={section} className='mb-6'>
-                <div className='mb-3 pl-2.5 font-mono text-caption uppercase tracking-[0.12em] text-gold'>
-                  {section}
-                </div>
-                {items.map(item => {
-                  const isActive = item.slug === currentPage.slug;
-                  return (
-                    <a
-                      key={item.slug}
-                      href={`#${item.slug}`}
-                      className={`-ml-2.5 block rounded-btn border-l-2 py-1.5 pl-2.5 text-[14px] tracking-brand leading-snug no-underline transition-colors hover:bg-[rgba(138,171,135,0.04)] hover:text-primary ${
-                        isActive
-                          ? '-ml-3 border-accent bg-accent/[0.06] pl-3 text-primary'
-                          : 'border-transparent text-secondary-warm'
-                      }`}
-                    >
-                      {item.label}
-                    </a>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </aside>
+        <DocsSidebar currentSlug={currentPage.slug} />
 
         <main className='fred-doc-prose'>
           <Content />
