@@ -173,6 +173,8 @@ export const PAGES: PageEntry[] = [
     slug: 'understanding-fire',
     label: 'Fire risk and alpha',
     section: 'Understanding the numbers',
+    description:
+      'Burn probability, the four fire-risk tiers, the alpha weighting knob, and how the fire score is computed.',
     Component: UnderstandingFirePage,
     toc: understandingFireToc,
   },
