@@ -99,6 +99,8 @@ export const PAGES: PageEntry[] = [
     slug: 'capabilities-overview',
     label: 'Overview',
     section: 'Capabilities',
+    description:
+      'What FRED can be asked to do, and how siting, regional supply, multi-year planning and fire-aware runs differ.',
     Component: CapabilitiesOverviewPage,
     toc: capabilitiesOverviewToc,
   },
