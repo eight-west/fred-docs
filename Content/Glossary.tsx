@@ -1,4 +1,4 @@
-import { DefList, PageTitle, InlineCode } from '../Prose';
+import { DefList, DocLink, InlineCode, PageTitle } from '../Prose';
 
 export const glossaryToc = [
   { id: 'a-c', label: 'A - C' },
