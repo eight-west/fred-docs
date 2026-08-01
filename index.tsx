@@ -57,20 +57,7 @@ export default function DocsPage() {
         <aside className='hidden self-start pt-4 xl:sticky xl:top-20 xl:block xl:max-h-[calc(100vh-100px)] xl:overflow-y-auto'>
           <DocsToc entries={currentPage.toc} activeId={activeAnchor} />
 
-          <div className='mt-8 rounded-card border border-edge-soft p-4'>
-            <div className='mb-2 font-mono text-caption tracking-[0.1em] text-gold'>
-              TRY IT
-            </div>
-            <p className='mb-2.5 text-xs leading-snug text-secondary-warm'>
-              See FRED resolve a procurement query in real time.
-            </p>
-            <a
-              href='/chat'
-              className='inline-block font-mono text-caption uppercase tracking-[0.04em] text-gold no-underline'
-            >
-              Launch FRED
-            </a>
-          </div>
+          <TryItCard />
         </aside>
       </div>
     </div>
