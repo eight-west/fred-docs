@@ -144,6 +144,8 @@ export const PAGES: PageEntry[] = [
     slug: 'comparing-locations',
     label: 'Comparing locations',
     section: 'Capabilities',
+    description:
+      'Put candidate sites side by side and interpret the differences FRED reports between them.',
     Component: ComparingLocationsPage,
     toc: comparingLocationsToc,
   },
