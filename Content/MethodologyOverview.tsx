@@ -29,7 +29,7 @@ export default function MethodologyOverviewPage() {
           <strong>Learned prediction layer</strong>: a machine-learning
           model trained to predict an outcome from inputs. FRED's harvest
           cost surrogate is the canonical example. See{' '}
-          <a href='#harvest-cost-method'>Harvest cost surrogate</a>.
+          <DocLink to='harvest-cost-method'>Harvest cost surrogate</DocLink>.
         </li>
         <li>
           <strong>Interpolated empirical layer</strong>: a continuous
