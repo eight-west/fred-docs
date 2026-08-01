@@ -220,6 +220,8 @@ export const PAGES: PageEntry[] = [
     slug: 'fire-method',
     label: 'Fire-aware Pareto framework',
     section: 'Methodology',
+    description:
+      'The fire-aware Pareto framework: USDA FSim as the input, the objective function, and how the curve is computed.',
     Component: FireMethodPage,
     toc: fireMethodToc,
   },
