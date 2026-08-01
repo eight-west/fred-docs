@@ -29,7 +29,7 @@ export default function CapabilitiesOverviewPage() {
           new biomass facility?
         </li>
         <li>
-          <a href='#regional-supply'>Regional supply analysis</a>: how much
+          <DocLink to='regional-supply'>Regional supply analysis</DocLink>: how much
           biomass is available in a region, and what does it cost?
         </li>
         <li>
