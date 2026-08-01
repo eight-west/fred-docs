@@ -62,6 +62,30 @@ export type PageEntry = PageMeta & {
   toc: TocEntry[];
 };
 
+const CONTENT: Record<string, { Component: () => JSX.Element; toc: TocEntry[] }> = {
+  'introduction': { Component: IntroductionPage, toc: introductionToc },
+  'first-query': { Component: FirstQueryPage, toc: firstQueryToc },
+  'reading-answers': { Component: ReadingAnswersPage, toc: readingAnswersToc },
+  'scope': { Component: ScopePage, toc: scopeToc },
+  'capabilities-overview': { Component: CapabilitiesOverviewPage, toc: capabilitiesOverviewToc },
+  'facility-siting': { Component: FacilitySitingPage, toc: facilitySitingToc },
+  'regional-supply': { Component: RegionalSupplyPage, toc: regionalSupplyToc },
+  'fire-tradeoffs': { Component: FireTradeoffsPage, toc: fireTradeoffsToc },
+  'multi-year': { Component: MultiYearPage, toc: multiYearToc },
+  'comparing-locations': { Component: ComparingLocationsPage, toc: comparingLocationsToc },
+  'understanding-cost': { Component: UnderstandingCostPage, toc: understandingCostToc },
+  'understanding-supply': { Component: UnderstandingSupplyPage, toc: understandingSupplyToc },
+  'understanding-fire': { Component: UnderstandingFirePage, toc: understandingFireToc },
+  'understanding-transport': { Component: UnderstandingTransportPage, toc: understandingTransportToc },
+  'methodology-overview': { Component: MethodologyOverviewPage, toc: methodologyOverviewToc },
+  'harvest-cost-method': { Component: HarvestCostMethodPage, toc: harvestCostMethodToc },
+  'transport-method': { Component: TransportMethodPage, toc: transportMethodToc },
+  'fire-method': { Component: FireMethodPage, toc: fireMethodToc },
+  'glossary': { Component: GlossaryPage, toc: glossaryToc },
+  'faq': { Component: FAQPage, toc: faqToc },
+  'citing-fred': { Component: CitingFredPage, toc: citingFredToc },
+};
+
 export const PAGES: PageEntry[] = [
   // Getting started: what FRED is, how to use it, what to expect
   {
