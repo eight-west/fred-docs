@@ -1,4 +1,4 @@
-import { Heading, InlineCode, Callout, PageTitle } from '../Prose';
+import { Callout, DocLink, Heading, InlineCode, PageTitle } from '../Prose';
 
 export const introductionToc = [
   { id: 'what-fred-does', label: 'What FRED does' },
