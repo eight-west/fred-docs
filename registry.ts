@@ -79,6 +79,8 @@ export const PAGES: PageEntry[] = [
     slug: 'reading-answers',
     label: "Reading FRED's answers",
     section: 'Getting started',
+    description:
+      'How to read a FRED answer: the headline number, the map, the supply curve, the justification, and when to trust the result.',
     Component: ReadingAnswersPage,
     toc: readingAnswersToc,
   },
