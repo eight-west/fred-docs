@@ -35,7 +35,7 @@ export default function MethodologyOverviewPage() {
           <strong>Interpolated empirical layer</strong>: a continuous
           spatial field built from sampled observations using interpolation.
           FRED's transport circuity model is the example. See{' '}
-          <a href='#transport-method'>Transport circuity model</a>.
+          <DocLink to='transport-method'>Transport circuity model</DocLink>.
         </li>
         <li>
           <strong>Optimization layer over external domain data</strong>: a
