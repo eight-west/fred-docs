@@ -249,6 +249,8 @@ export const PAGES: PageEntry[] = [
     slug: 'citing-fred',
     label: 'Citing FRED',
     section: 'Reference',
+    description:
+      'How to cite FRED as a system and the individual model layers it is built from, with acknowledgments.',
     Component: CitingFredPage,
     toc: citingFredToc,
   },
