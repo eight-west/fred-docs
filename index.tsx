@@ -27,7 +27,7 @@ export default function DocsPage() {
   return (
     <div className='min-h-screen bg-canvas-deep text-primary'>
       <SiteHeader section='Docs'>
-        <DocsSearchButton onOpen={() => setSearchOpen(true)} />
+        <DocsSearchButton onOpen={openPalette} />
       </SiteHeader>
 
       {searchOpen && (
