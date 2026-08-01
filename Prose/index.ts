@@ -8,3 +8,5 @@ export type { ParamRow } from './ParamTable';
 export { EndpointHeader } from './EndpointHeader';
 export { DefList } from './DefList';
 export { PageTitle } from './PageTitle';
+export { Figure } from './Figure';
+export { ProseTable } from './ProseTable';
