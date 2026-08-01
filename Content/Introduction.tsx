@@ -129,7 +129,7 @@ export default function IntroductionPage() {
       <p>If you want to get started right away:</p>
       <ul>
         <li>
-          Read <a href='#first-query'>Your first query</a> to learn how to
+          Read <DocLink to='first-query'>Your first query</DocLink> to learn how to
           phrase questions effectively.
         </li>
         <li>
