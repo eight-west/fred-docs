@@ -29,7 +29,7 @@ export function DocsPager({ prev, next }: DocsPagerProps) {
             NEXT &#8594;
           </div>
           <div className='text-[17px] font-normal tracking-brand'>{next.label}</div>
-        </a>
+        </Link>
       ) : (
         <div />
       )}
