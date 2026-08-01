@@ -28,7 +28,7 @@ export default function GlossaryPage() {
           { term: 'Burn probability', def: 'Per-pixel annual probability of burning, from the USDA FSim 2024 raster. Values typically 0 to 0.08.' },
           { term: 'C-BREC', def: 'California Biomass Residue and Energy Conversion dataset. The source for FRED\'s cluster polygons, biomass volumes, and prescription metadata.' },
           { term: 'CHP', def: 'Combined Heat and Power. One of three biomass facility technology types FRED can model.' },
-          { term: 'Circuity factor (CF)', def: <>The ratio of road network distance to straight-line distance between two points. Used to convert Euclidean haul estimates into realistic truck distances. See <a href='#understanding-transport'>Transport: circuity and haul</a>.</> },
+          { term: 'Circuity factor (CF)', def: <>The ratio of road network distance to straight-line distance between two points. Used to convert Euclidean haul estimates into realistic truck distances. See <DocLink to='understanding-transport'>Transport: circuity and haul</DocLink>.</> },
           { term: 'Cluster', def: 'FRED\'s atomic unit of supply. A polygon over a small forest area with known biomass inventory, harvesting system feasibility, and precomputed harvest cost. About 3.1 million clusters cover California.' },
           { term: 'CS-RAG', def: 'Compositional Spatial RAG. FRED\'s underlying architecture. Retrieves spatial prediction layers and composes them dynamically at query time.' }
         ]}
