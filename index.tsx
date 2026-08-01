@@ -19,7 +19,6 @@ export default function DocsPage() {
   const nextPage =
     currentIndex < PAGES.length - 1 ? PAGES[currentIndex + 1] : null;
 
-  const [search, setSearch] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
