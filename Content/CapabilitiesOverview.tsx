@@ -25,7 +25,7 @@ export default function CapabilitiesOverviewPage() {
       </p>
       <ul>
         <li>
-          <a href='#facility-siting'>Facility siting</a>: where should I put a
+          <DocLink to='facility-siting'>Facility siting</DocLink>: where should I put a
           new biomass facility?
         </li>
         <li>
