@@ -24,7 +24,7 @@ export function DocsPager({ prev, next }: DocsPagerProps) {
         <div />
       )}
       {next ? (
-        <a href={`#${next.slug}`} className={`${CARD} text-right`}>
+        <Link to={docsPath(next.slug)} className={`${CARD} text-right`}>
           <div className='mb-2 font-mono text-caption tracking-[0.12em] text-gold'>
             NEXT &#8594;
           </div>
