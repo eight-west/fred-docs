@@ -14,7 +14,7 @@ export function DocsPager({ prev, next }: DocsPagerProps) {
   return (
     <nav className='mt-20 grid grid-cols-2 gap-3 border-t border-edge-soft pt-8'>
       {prev ? (
-        <a href={`#${prev.slug}`} className={CARD}>
+        <Link to={docsPath(prev.slug)} className={CARD}>
           <div className='mb-2 font-mono text-caption tracking-[0.12em] text-gold'>
             &#8592; PREVIOUS
           </div>
