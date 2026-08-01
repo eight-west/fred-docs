@@ -23,6 +23,7 @@ export default function DocsPage() {
     currentIndex < PAGES.length - 1 ? PAGES[currentIndex + 1] : null;
 
   const { open: searchOpen, openPalette, closePalette } = useSearchPalette();
+  useHashScroll();
 
   const Content = currentPage.Component;
 
