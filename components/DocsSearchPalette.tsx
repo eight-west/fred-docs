@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SearchIcon } from './SearchIcon';
 import { filterSearch } from '../search';
+import { docsPath } from '../docsPath';
 
 export function DocsSearchPalette({ onClose }: { onClose: () => void }) {
   const [search, setSearch] = useState('');
