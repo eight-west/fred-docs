@@ -4,6 +4,7 @@ import { SiteHeader } from '../../Shared/SiteHeader';
 import { useScrollSpy } from '../Hooks/useScrollSpy';
 import { useSearchPalette } from '../Hooks/useSearchPalette';
 import { useHashScroll } from '../Hooks/useHashScroll';
+import { useDocumentMeta } from '../Hooks/useDocumentMeta';
 import { PAGES } from './registry';
 import { DOCS_DEFAULT_SLUG, docsPath } from './docsPath';
 import { DocsPager, DocsSearchButton, DocsSearchPalette, DocsSidebar, DocsToc,
