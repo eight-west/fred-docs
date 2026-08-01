@@ -182,6 +182,8 @@ export const PAGES: PageEntry[] = [
     slug: 'understanding-transport',
     label: 'Transport circuity',
     section: 'Understanding the numbers',
+    description:
+      'The circuity factor, the five circuity zones, the short-route paradox, and how to read the circuity overlay.',
     Component: UnderstandingTransportPage,
     toc: understandingTransportToc,
   },
