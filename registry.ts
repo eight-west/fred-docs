@@ -46,13 +46,20 @@ import GlossaryPage, { glossaryToc } from './Content/Glossary';
 import FAQPage, { faqToc } from './Content/Faq';
 import CitingFredPage, { citingFredToc } from './Content/CitingFred';
 
-export type PageEntry = {
+export type TocEntry = { id: string; label: string };
+
+// Everything the build scripts need lives in pages.json; the registry only
+// adds what cannot be serialised.
+export type PageMeta = {
   slug: string;
   label: string;
   section: string;
   description: string;
+};
+
+export type PageEntry = PageMeta & {
   Component: () => JSX.Element;
-  toc: { id: string; label: string }[];
+  toc: TocEntry[];
 };
 
 export const PAGES: PageEntry[] = [
