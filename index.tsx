@@ -31,7 +31,7 @@ export default function DocsPage() {
       </SiteHeader>
 
       {searchOpen && (
-        <DocsSearchPalette onClose={() => setSearchOpen(false)} />
+        <DocsSearchPalette onClose={closePalette} />
       )}
 
       <div className='mx-auto grid max-w-content grid-cols-1 gap-6 px-5 pb-20 pt-6 md:grid-cols-[220px_minmax(0,1fr)] md:gap-12 md:px-8 md:pb-30 md:pt-8 xl:grid-cols-[240px_minmax(0,1fr)_200px]'>
