@@ -65,7 +65,7 @@ FRED is source-available under the [PolyForm Noncommercial License](LICENSE),
 with commercial licences sold separately.
 
 That model only works if one party can license the whole codebase. **By opening
-a pull request you grant Eight West a perpetual, worldwide, irrevocable,
+a pull request you grant 8W Research a perpetual, worldwide, irrevocable,
 royalty-free licence to use, modify, sublicense and relicense your contribution,
 including under commercial terms.** You keep your own copyright and remain free
 to use your contribution however you like.
