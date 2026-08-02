@@ -29,7 +29,8 @@
     "postbuild": "node scripts/prerender.mjs",
     "test": "react-scripts test",
     "test:scripts": "node --test scripts/lib/",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:design": "node scripts/check-design-drift.mjs"
   },
   "eslintConfig": {
     "extends": "react-app"

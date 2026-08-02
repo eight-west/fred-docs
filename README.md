@@ -78,8 +78,19 @@ prose itself arrives when the bundle runs.
 The design tokens in `tailwind.config.js` and the `.fred-doc-prose` layer in
 `src/index.css` are copies of the ones in `eight-west/fred`, so the docs look
 identical to the rest of the site. **They are copies, not a shared package** —
-changing a token here does not change it there. Keep them in step by hand, or
-extract them into a package when the drift starts to hurt.
+changing a token here does not change it there.
+
+`npm run check:design` compares both files against the product repo and fails
+if they have diverged. CI runs it on every pull request.
+
+It cannot work while `eight-west/fred` is private: an unauthenticated fetch
+404s, and the check says so loudly and passes rather than pretending. To arm
+it, either make that repo public or set an `UPSTREAM_TOKEN` secret with read
+access to it. Until then the two can drift silently, so keep them in step by
+hand.
+
+Detection is not sharing. Publishing the tokens as a package is the real fix,
+and is worth doing once this check starts firing often.
 
 One trap worth knowing: `.fred-doc-prose a` is more specific than a `text-gold`
 utility, so a link inside the prose column cannot be recoloured by adding a
