@@ -1,0 +1,40 @@
+name: Feature or change
+description: Propose something FRED should do differently
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: |
+        What are you trying to do that FRED makes hard or impossible? Describe
+        the situation, not the solution — the fix is often not the one that
+        first comes to mind.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you have in mind
+      description: Optional. If you already have a shape for it, describe it.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you tried instead
+      description: |
+        Existing workarounds, and why they are not enough. This is usually the
+        most useful part.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Modelling — a new capability or a change to the method
+        - Interface — how a result is asked for or shown
+        - Documentation
+        - Developer experience
+    validations:
+      required: true

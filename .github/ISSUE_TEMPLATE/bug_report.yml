@@ -1,0 +1,66 @@
+name: Bug report
+description: Something behaves differently from what it should
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Found a security vulnerability? Do not file it here — see
+        [SECURITY.md](../blob/main/SECURITY.md).
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where
+      options:
+        - Frontend — map and chat
+        - Frontend — blog, docs, or landing page
+        - Backend — agent or tools
+        - Backend — auth, accounts, saved runs
+        - Build, CI, or deploy
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: |
+        The steps someone else can follow to see it. If it involves the agent,
+        give the exact question you asked — phrasing changes the tool calls.
+      placeholder: |
+        1. Go to /chat
+        2. Ask "Where could I put a 25 MW plant near Quincy?"
+        3. …
+    validations:
+      required: true
+
+  - type: input
+    id: run
+    attributes:
+      label: Run ID
+      description: If the agent produced a run, its ID makes this much faster to trace.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Environment
+      description: Browser and version, or local vs biofred.us. Console errors if any.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before filing
+      options:
+        - label: I searched existing issues
+          required: true
+        - label: This reproduces on a fresh page load

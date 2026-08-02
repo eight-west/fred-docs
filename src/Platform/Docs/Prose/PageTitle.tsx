@@ -13,7 +13,7 @@ export function PageTitle({
   title,
   lede,
   rootLabel = 'DOCS',
-  rootHref = '/docs/introduction'
+  rootHref = '/introduction'
 }: PageTitleProps) {
   return (
     <>

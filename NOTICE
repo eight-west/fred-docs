@@ -1,0 +1,55 @@
+FRED — Forest Resource and Renewable Energy Decision support
+Copyright Eight West. All rights reserved except as granted below.
+
+Required Notice: Copyright Eight West (https://biofred.us)
+
+--------------------------------------------------------------------------
+What this repository is licensed under
+--------------------------------------------------------------------------
+
+Source code in this repository is licensed under the PolyForm Noncommercial
+License 1.0.0. See LICENSE.
+
+In short: use it freely for research, teaching, study, and any other
+noncommercial purpose. Educational institutions, public research
+organisations and government bodies are covered regardless of how the work
+is funded. Commercial use is not granted by that licence — see COMMERCIAL.md.
+
+--------------------------------------------------------------------------
+What is NOT covered by that licence
+--------------------------------------------------------------------------
+
+The following are separate works and are not licensed by LICENSE. No rights
+in them are granted by this repository, whether or not a copy appears in the
+git history.
+
+1. Trained model artefacts
+   The harvest cost surrogate, the feasibility classifier, and any other
+   serialised model weights produced by the research. These are the output
+   of the research rather than the software that reads them.
+
+2. Research writing and figures
+   The thesis, papers, blog posts and their figures. These are content, not
+   software, and a software licence is the wrong instrument for them. They
+   are made available under CC BY-NC-ND 4.0 where published.
+
+3. Input data
+   FRCS simulator output, USDA FSim burn probability layers, OSRM routing
+   results, and any third-party geospatial dataset. These carry the licences
+   of their original providers, which this repository cannot alter.
+
+--------------------------------------------------------------------------
+Third-party dependencies
+--------------------------------------------------------------------------
+
+Dependencies retain their own licences. See frontend/package.json,
+studio/package.json and backend/requirements.txt for the dependency sets, and
+each project's own distribution for its licence terms.
+
+--------------------------------------------------------------------------
+Citation
+--------------------------------------------------------------------------
+
+If FRED contributed materially to academic work, please cite it. BibTeX
+entries for the system and for each model layer are at
+https://biofred.us/docs/citing-fred

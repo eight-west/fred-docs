@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/aunshx/fred/blob/main/SECURITY.md
+    about: Do not open a public issue. Email contact@biofred.us.
+  - name: Commercial licensing
+    url: https://github.com/aunshx/fred/blob/main/COMMERCIAL.md
+    about: Using FRED commercially needs a separate licence.
+  - name: How FRED works
+    url: https://biofred.us/docs/introduction
+    about: Methodology, the numbers behind the answers, and what is out of scope.

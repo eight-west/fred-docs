@@ -1,0 +1,18 @@
+[build]
+  command = "CI=false npm run build"
+  publish = "build"
+
+# CRA treats lint warnings as errors when CI=true, which fails the production
+# build. Keep it false so the build matches CI.
+[build.environment]
+  CI = "false"
+
+# Serve the prerendered <slug>/index.html directly instead of 301-ing to the
+# trailing-slash form on every page.
+[build.processing.html]
+  pretty_urls = false
+
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

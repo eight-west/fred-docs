@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Build-script tests
+        run: npm run test:scripts
+      - name: Component tests
+        run: npm test -- --watchAll=false --maxWorkers=2
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Production build and prerender
+        run: CI=false npm run build
+      - name: Every page must be prerendered
+        run: |
+          missing=0
+          for slug in $(node -e "JSON.parse(require('fs').readFileSync('src/Platform/Docs/pages.json')).forEach(p=>console.log(p.slug))"); do
+            if [ ! -f "build/$slug/index.html" ]; then echo "missing build/$slug/index.html"; missing=1; fi
+          done
+          test -f build/sitemap.xml || { echo "missing sitemap.xml"; missing=1; }
+          exit $missing
