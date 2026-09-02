@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -48,3 +49,54 @@ jobs:
           done
           test -f build/sitemap.xml || { echo "missing sitemap.xml"; missing=1; }
           exit $missing
+      # netlify.toml's SPA rule is not applied to a direct CLI deploy, so the
+      # catch-all has to travel with the bundle. Prerendered pages still win:
+      # Netlify serves build/<slug>/index.html before falling through here.
+      - name: Write redirects for direct deploys
+        run: echo '/*  /index.html  200' > build/_redirects
+      - name: Upload production bundle
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-build
+          path: build/
+          retention-days: 7
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [test, build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Download production bundle
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-build
+          path: build
+      # Netlify's free plan refuses to build organisation-owned private repos,
+      # so their git integration cannot deploy this site. Building here and
+      # pushing the bundle with their CLI is the workaround they recommend.
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_NAME: ${{ vars.NETLIFY_SITE_NAME }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "NETLIFY_AUTH_TOKEN must be set as a repository secret."
+            exit 1
+          fi
+          if [ -z "$NETLIFY_SITE_NAME" ]; then
+            echo "NETLIFY_SITE_NAME must be set as a repository variable."
+            echo "It is not defaulted on purpose: a wrong value would publish"
+            echo "these docs over another site."
+            exit 1
+          fi
+          npx --yes netlify-cli@latest deploy \
+            --prod \
+            --no-build \
+            --dir=build \
+            --auth "$NETLIFY_AUTH_TOKEN" \
+            --site "$NETLIFY_SITE_NAME" \
+            --message="main @ ${GITHUB_SHA::7}"
