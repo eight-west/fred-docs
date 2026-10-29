@@ -25,46 +25,84 @@ module.exports = {
         extend: {
             colors: {
                 // dark backgrounds
-                canvas: '#0a1410',
-                'canvas-deep': '#060e06',
-                surface: '#0E1814',
-                'surface-deep': '#0B100D',
+                canvas: 'rgb(var(--c-canvas) / <alpha-value>)',
+                'canvas-deep': 'rgb(var(--c-canvas-deep) / <alpha-value>)',
+                surface: 'rgb(var(--c-surface) / <alpha-value>)',
+
+                // Platform app chrome. Scoped separately from `canvas` so the
+                // marketing pages, which are tuned for a near-black hero, keep
+                // their own footing while the app stays readable for long
+                // working sessions.
+                'app-canvas': '#04100a',
+                'app-surface': '#091810',
+                'app-edge': 'rgba(122,199,146,0.26)',
+                'app-edge-strong': 'rgba(122,199,146,0.42)',
+                'app-tint': 'rgba(122,199,146,0.07)',
+                'app-muted': 'rgba(236,244,235,0.82)',
+                'app-faint': 'rgba(236,244,235,0.60)',
+                'surface-deep': 'rgb(var(--c-surface-deep) / <alpha-value>)',
                 'surface-raised': 'rgba(20,30,24,0.6)',
 
                 // subtle borders / dividers
-                edge: 'rgba(138,171,135,0.14)',
-                'edge-strong': 'rgba(138,171,135,0.28)',
-                'edge-soft': 'rgba(138,171,135,0.12)',
-                'edge-soft-strong': 'rgba(138,171,135,0.25)',
-                'edge-hover': 'rgba(138,171,135,0.3)',
-                'edge-hover-strong': 'rgba(138,171,135,0.6)',
+                edge: 'var(--c-edge)',
+                'edge-strong': 'var(--c-edge-strong)',
+                'edge-soft': 'var(--c-edge-soft)',
+                'edge-soft-strong': 'var(--c-edge-soft-strong)',
+                'edge-hover': 'var(--c-edge-hover)',
+                'edge-hover-strong': 'var(--c-edge-hover-strong)',
 
                 // faint wash behind hovered cards and ghost buttons
-                'surface-tint': 'rgba(138,171,135,0.04)',
+                'surface-tint': 'var(--c-surface-tint)',
 
                 // foreground text
-                primary: '#F5F0E6',
-                secondary: 'rgba(245,240,230,0.68)',
-                'secondary-soft': 'rgba(245,240,230,0.6)',
-                'secondary-warm': 'rgba(245,240,230,0.65)',
-                tertiary: 'rgba(245,240,230,0.42)',
-                'tertiary-soft': 'rgba(245,240,230,0.4)',
+                primary: 'rgb(var(--c-primary) / <alpha-value>)',
+                secondary: 'var(--c-secondary)',
+                'secondary-soft': 'var(--c-secondary-soft)',
+                'secondary-warm': 'var(--c-secondary-warm)',
+                tertiary: 'var(--c-tertiary)',
+                'tertiary-soft': 'var(--c-tertiary-soft)',
+
+                // light surfaces (FRED's message card sits on the white chat panel)
+                paper: 'rgb(var(--c-paper) / <alpha-value>)',
+                'paper-tint': 'var(--c-paper-tint)',
+                ink: 'rgb(var(--c-ink) / <alpha-value>)',
+                'ink-soft': 'var(--c-ink-soft)',
+                'ink-faint': 'var(--c-ink-faint)',
+                rule: 'var(--c-rule)',
+                'rule-strong': 'var(--c-rule-strong)',
 
                 // brand accent (new palette)
-                accent: '#4ADE80',
-                'accent-dim': 'rgba(74,222,128,0.5)',
-                'accent-faint': 'rgba(74,222,128,0.08)',
+                accent: 'rgb(var(--c-accent) / <alpha-value>)',
+
+                // Mirrors --focus-ring in index.css. Chosen to clear 3:1 on
+                // every surface token, light and dark; see the note there.
+                focus: 'var(--focus-ring)',
+                'accent-dim': 'var(--c-accent-dim)',
+                'accent-faint': 'var(--c-accent-faint)',
+
+                // The Beta mark on the wordmark. Its own token because the mark
+                // has to hold up at 10px on the near-black hero, on the blog's
+                // translucent bar and in the app chrome, which is more than the
+                // general `edge` and `tertiary` values were tuned for.
+                beta: 'rgb(var(--c-beta) / <alpha-value>)',
+                'beta-edge': 'var(--c-beta-edge)',
+                'beta-tint': 'var(--c-beta-tint)',
 
                 // gold highlight
-                gold: '#c8a96e',
-                'gold-dim': 'rgba(200,169,110,0.6)',
-                'gold-bright': '#d8bc84',
-                'gold-ink': '#1a1408',
+                gold: 'rgb(var(--c-gold) / <alpha-value>)',
+                'gold-dim': 'var(--c-gold-dim)',
+                'gold-bright': 'rgb(var(--c-gold-bright) / <alpha-value>)',
+                'gold-ink': 'rgb(var(--c-gold-ink) / <alpha-value>)',
+
+                // prose callouts and syntax literals
+                warn: 'rgb(var(--c-warn) / <alpha-value>)',
+                tip: 'rgb(var(--c-tip) / <alpha-value>)',
+                danger: 'rgb(var(--c-danger) / <alpha-value>)',
 
                 // legacy brand greens (older button palette, retained until full migration)
-                brand: '#395442',
+                brand: 'rgb(var(--c-brand) / <alpha-value>)',
                 'brand-dark': '#2f4538',
-                'brand-deep': '#0B180A',
+                'brand-deep': 'rgb(var(--c-brand-deep) / <alpha-value>)',
             },
             fontFamily: {
                 // body / UI default — also set on <body> in index.css so most
@@ -95,6 +133,9 @@ module.exports = {
             },
             fontSize: {
                 hero: 'clamp(44px, 6vw, 72px)',
+                // The landing H1 is a full sentence, not a three-word slogan,
+                // so it runs smaller than `hero` to stay inside four lines.
+                headline: 'clamp(40px, 5vw, 64px)',
                 display: 'clamp(32px, 4.2vw, 58px)',
                 subheading: '29px',
                 h3: '22px',
@@ -106,10 +147,14 @@ module.exports = {
                 'doc-h3': '19px',
                 'doc-h4': '15px',
                 'mono-label': '13px',
+                // Small-caps tags (the Beta mark) — sits below mono-label so
+                // the tag reads as an annotation, not a peer of the wordmark.
+                'mono-micro': '10px',
                 data: '48px',
             },
             lineHeight: {
                 display: '0.9',
+                headline: '1.02',
                 heading: '1.06',
                 subheading: '1.28',
                 body: '1.62',
@@ -125,6 +170,11 @@ module.exports = {
                 input: '3.6px',
                 card: '0px',
                 pill: '9999px',
+                app: '12px',
+                'app-sm': '8px',
+                // The landing page's floating product pieces and its bands.
+                panel: '20px',
+                tile: '14px',
             },
             maxWidth: {
                 content: '1200px',
@@ -141,6 +191,15 @@ module.exports = {
                 s86: '86px',
                 s104: '104px',
                 s119: '119px',
+            },
+            boxShadow: {
+                float: 'var(--shadow-float)',
+            },
+            backgroundImage: {
+                // Light falling on the hero and the closing band: accent from
+                // the upper right, gold from the lower left, both on canvas.
+                glow: 'radial-gradient(60% 70% at 78% 30%, rgba(74,222,128,0.16) 0%, rgba(74,222,128,0.04) 45%, transparent 70%), radial-gradient(45% 60% at 8% 95%, rgba(200,169,110,0.12) 0%, transparent 60%)',
+                'glow-soft': 'radial-gradient(50% 80% at 85% 50%, rgba(74,222,128,0.09) 0%, transparent 70%)',
             },
             transitionTimingFunction: {
                 brand: 'cubic-bezier(0.16, 1, 0.3, 1)',

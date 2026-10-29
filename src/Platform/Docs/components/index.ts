@@ -2,6 +2,8 @@ export { SearchIcon } from './SearchIcon';
 export { DocsSearchButton } from './DocsSearchButton';
 export { DocsSearchPalette } from './DocsSearchPalette';
 export { DocsSidebar } from './DocsSidebar';
+export { DocsMobileNav } from './DocsMobileNav';
 export { DocsPager } from './DocsPager';
 export { DocsToc } from './DocsToc';
+export { ReadingProgress } from './ReadingProgress';
 export { TryItCard } from './TryItCard';

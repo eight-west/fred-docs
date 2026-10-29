@@ -16,21 +16,23 @@ export function PageTitle({
   rootHref = '/introduction'
 }: PageTitleProps) {
   return (
-    <>
-      <nav className='fred-crumb mb-6 flex items-center gap-3 font-mono text-caption uppercase tracking-[0.14em] text-tertiary-soft'>
-        <span aria-hidden className='block h-px w-6 bg-gold/60' />
+    <header className='mb-s59'>
+      <nav
+        aria-label='Breadcrumb'
+        className='fred-crumb mb-s21 inline-flex items-center gap-2 rounded-pill border border-gold-dim px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em]'
+      >
         <Link to={rootHref} className='text-gold no-underline'>
           {rootLabel}
         </Link>
-        <span className='opacity-40'>/</span>
-        <span className='text-secondary-warm'>{eyebrow}</span>
+        <span aria-hidden='true' className='text-gold-dim'>
+          /
+        </span>
+        <span className='text-secondary'>{eyebrow}</span>
       </nav>
-      <h1 className='m-0 mb-5 text-doc-h1 font-normal leading-heading tracking-brand text-primary'>
+      <h1 className='m-0 mb-s21 text-[34px] font-normal leading-heading tracking-brand text-primary [text-wrap:balance] md:text-[44px]'>
         {title}
       </h1>
-      <p className='mb-10 max-w-[680px] text-[17px] leading-body tracking-brand text-secondary-warm'>
-        {lede}
-      </p>
-    </>
+      <p className='fred-lede'>{lede}</p>
+    </header>
   );
 }

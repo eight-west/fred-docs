@@ -15,27 +15,27 @@ const CALLOUT_STYLES: Record<
     label: 'NOTE',
   },
   warn: {
-    container: 'border-[rgba(250,199,117,0.25)] bg-[rgba(250,199,117,0.05)]',
-    dot: 'bg-[#FAC775]',
+    container: 'border-warn/25 bg-warn/[0.06]',
+    dot: 'bg-warn',
     label: 'CAUTION',
   },
   tip: {
-    container: 'border-[rgba(159,225,203,0.25)] bg-[rgba(159,225,203,0.05)]',
-    dot: 'bg-[#9FE1CB]',
+    container: 'border-tip/25 bg-tip/[0.06]',
+    dot: 'bg-tip',
     label: 'TIP',
   },
   danger: {
-    container: 'border-[rgba(244,144,144,0.25)] bg-[rgba(244,144,144,0.05)]',
-    dot: 'bg-[#F49090]',
+    container: 'border-danger/25 bg-danger/[0.06]',
+    dot: 'bg-danger',
     label: 'WARNING',
   },
 };
 
 const CALLOUT_LABEL_COLORS: Record<CalloutKind, string> = {
   info: 'text-accent',
-  warn: 'text-[#FAC775]',
-  tip: 'text-[#9FE1CB]',
-  danger: 'text-[#F49090]',
+  warn: 'text-warn',
+  tip: 'text-tip',
+  danger: 'text-danger',
 };
 
 export function Callout({
@@ -48,7 +48,7 @@ export function Callout({
   const styles = CALLOUT_STYLES[kind];
   return (
     <div
-      className={`my-5 rounded-btn border px-4 py-3.5 text-sm leading-relaxed text-primary ${styles.container}`}
+      className={`my-6 rounded-tile border px-5 py-4 text-sm leading-relaxed text-primary ${styles.container}`}
     >
       <div
         className={`mb-1.5 flex items-center gap-2 font-mono text-[10px] tracking-[0.12em] ${CALLOUT_LABEL_COLORS[kind]}`}

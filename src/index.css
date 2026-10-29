@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,6 +24,56 @@
   }
 }
 
+@keyframes shimmer {
+  from {
+    background-position: 180% 0;
+  }
+  to {
+    background-position: -180% 0;
+  }
+}
+
+/* Thinking timeline: entries fade in as they stream, the running step's label
+   sweeps, and its dot breathes on the spine. */
+.tl-enter {
+  animation: fadeIn 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.tl-running {
+  background-image: linear-gradient(
+    90deg,
+    rgba(22, 33, 27, 0.42) 0%,
+    rgba(22, 33, 27, 0.95) 45%,
+    rgba(22, 33, 27, 0.42) 90%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 1.9s linear infinite;
+}
+
+.tl-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  border: 1px solid rgba(57, 84, 66, 0.35);
+  animation: tl-ping 1.9s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes tl-ping {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.75);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -41,11 +89,132 @@ code {
 }
 
 /* Visible keyboard-focus ring for interactive elements. :where() keeps this at
-   zero specificity so component styles can still override it. */
+   zero specificity so component styles can still override it.
+
+   The colour is a mid-tone on purpose. The app puts focusable controls on
+   surfaces from #04100a to #FCFBF8, and no light green clears 3:1 against
+   both: at full opacity the old rgba(122,199,146,.42) hue reaches 9.29:1 on
+   the canvas but only 2.02:1 on the white map panels. This one holds
+   between 4.14:1 and 4.52:1 across every surface token.
+
+   The offset is doing work, not decoration. It lifts the ring off the
+   control and onto the page behind it, which is what keeps the ring legible
+   on the gold CTA — against that fill it would be 1.93:1. */
+:root {
+  --focus-ring: #0c8c44;
+}
+
+/* Colour tokens. tailwind.config.js reads every colour through these, so a
+   theme is one block of overrides. The values here are the site's own dark
+   palette; hex tokens are bare RGB channels so Tailwind's opacity modifiers
+   (bg-canvas/85) keep working. */
+:root {
+  --c-canvas: 10 20 16;
+  --c-canvas-deep: 6 14 6;
+  --c-surface: 14 24 20;
+  --c-surface-deep: 11 16 13;
+  --c-primary: 245 240 230;
+  --c-paper: 252 251 248;
+  --c-ink: 22 33 27;
+  --c-accent: 74 222 128;
+  --c-beta: 143 176 140;
+  --c-gold: 200 169 110;
+  --c-gold-bright: 216 188 132;
+  --c-gold-ink: 26 20 8;
+  --c-brand: 57 84 66;
+  --c-brand-deep: 11 24 10;
+  --c-surface-tint: rgba(138,171,135,0.04);
+  --c-edge: rgba(138,171,135,0.14);
+  --c-edge-strong: rgba(138,171,135,0.28);
+  --c-edge-soft: rgba(138,171,135,0.12);
+  --c-edge-soft-strong: rgba(138,171,135,0.25);
+  --c-edge-hover: rgba(138,171,135,0.3);
+  --c-edge-hover-strong: rgba(138,171,135,0.6);
+  --c-secondary: rgba(245,240,230,0.68);
+  --c-secondary-soft: rgba(245,240,230,0.6);
+  --c-secondary-warm: rgba(245,240,230,0.65);
+  --c-tertiary: rgba(245,240,230,0.42);
+  --c-tertiary-soft: rgba(245,240,230,0.4);
+  --c-paper-tint: rgba(57,84,66,0.05);
+  --c-ink-soft: rgba(22,33,27,0.70);
+  --c-ink-faint: rgba(22,33,27,0.45);
+  --c-rule: rgba(22,33,27,0.10);
+  --c-rule-strong: rgba(22,33,27,0.18);
+  --c-accent-dim: rgba(74,222,128,0.5);
+  --c-accent-faint: rgba(74,222,128,0.08);
+  --c-beta-edge: rgba(143,176,140,0.34);
+  --c-beta-tint: rgba(143,176,140,0.10);
+  --c-gold-dim: rgba(200,169,110,0.6);
+  --c-warn: 250 199 117;
+  --c-tip: 159 225 203;
+  --c-danger: 244 144 144;
+  --hl-string: #F4C0D1;
+  --hl-comment: rgba(245,240,230,0.4);
+  --shadow-float: 0 24px 60px -20px rgba(0,0,0,0.7), 0 2px 6px rgba(0,0,0,0.3);
+  --vignette: rgba(0,0,0,0.4);
+  --terrain-line: rgba(138,171,135,0.13);
+  --terrain-line-strong: rgba(138,171,135,0.26);
+  --site-idle: rgba(138,171,135,0.38);
+  --site-found: rgba(245,240,230,0.78);
+}
+
+/* Light mode belongs to the public pages that opt in (the landing page and
+   the blog): the app chrome is tuned for dark, so those pages set this
+   attribute while they are mounted and clear it on the way out. Paper and ink swap, which keeps FRED's answer the inverse of
+   the page in both themes. */
+:root[data-landing-theme='light'] {
+  --c-canvas: 243 245 240;
+  --c-canvas-deep: 232 237 230;
+  --c-surface: 255 255 255;
+  --c-surface-deep: 236 240 234;
+  --c-primary: 18 32 26;
+  --c-paper: 20 36 29;
+  --c-ink: 243 245 240;
+  --c-accent: 22 128 68;
+  --c-beta: 61 110 70;
+  --c-gold: 139 104 40;
+  --c-gold-bright: 160 122 50;
+  --c-gold-ink: 255 255 255;
+  --c-brand: 127 211 158;
+  --c-brand-deep: 222 234 223;
+  --c-surface-tint: rgba(31,77,52,0.05);
+  --c-edge: rgba(22,48,34,0.12);
+  --c-edge-strong: rgba(22,48,34,0.2);
+  --c-edge-soft: rgba(22,48,34,0.1);
+  --c-edge-soft-strong: rgba(22,48,34,0.18);
+  --c-edge-hover: rgba(22,48,34,0.24);
+  --c-edge-hover-strong: rgba(22,48,34,0.4);
+  --c-secondary: rgba(18,32,26,0.76);
+  --c-secondary-soft: rgba(18,32,26,0.66);
+  --c-secondary-warm: rgba(18,32,26,0.72);
+  --c-tertiary: rgba(18,32,26,0.52);
+  --c-tertiary-soft: rgba(18,32,26,0.48);
+  --c-paper-tint: rgba(255,255,255,0.06);
+  --c-ink-soft: rgba(243,245,240,0.8);
+  --c-ink-faint: rgba(243,245,240,0.58);
+  --c-rule: rgba(255,255,255,0.14);
+  --c-rule-strong: rgba(255,255,255,0.26);
+  --c-accent-dim: rgba(22,128,68,0.5);
+  --c-accent-faint: rgba(22,128,68,0.1);
+  --c-beta-edge: rgba(61,110,70,0.35);
+  --c-beta-tint: rgba(61,110,70,0.1);
+  --c-gold-dim: rgba(139,104,40,0.55);
+  --c-warn: 138 92 8;
+  --c-tip: 13 112 94;
+  --c-danger: 180 40 40;
+  --hl-string: rgb(160 40 92);
+  --hl-comment: rgb(87 96 91);
+  --shadow-float: 0 24px 50px -24px rgba(22,48,34,0.28), 0 2px 6px rgba(22,48,34,0.08);
+  --vignette: transparent;
+  --terrain-line: rgba(22,48,34,0.12);
+  --terrain-line-strong: rgba(22,48,34,0.24);
+  --site-idle: rgba(22,48,34,0.3);
+  --site-found: rgba(18,32,26,0.8);
+}
+
 :where(a, button, input, select, textarea, [role='button'], [tabindex]:not([tabindex='-1'])):focus-visible {
-  outline: 2px solid #c8a96e;
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
-  border-radius: 3.6px;
 }
 
 .leaflet-container {
@@ -75,6 +244,30 @@ code {
 .leaflet-control-attribution svg {
   display: inline !important;
   vertical-align: middle !important;
+}
+
+/* The 8W mark is a dark raster; flatten it to the page's text colour. */
+.footer-logo { filter: brightness(0) invert(1); }
+:root[data-landing-theme='light'] .footer-logo { filter: brightness(0); }
+.footer-wordmark {
+  font-family: 'DM Serif Display', 'Cormorant', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  font-size: clamp(160px, 28vw, 480px);
+  color: rgb(var(--c-primary));
+  white-space: nowrap;
+  user-select: none;
+}
+.footer-wordmark-clip { overflow: hidden; }
+
+/* A row that appears in answer to a click, such as the blog's tag chips. */
+.blog-rise { animation: blog-rise 500ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes blog-rise {
+  from { opacity: 0; transform: translateY(6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blog-rise { animation: none; }
 }
 
 /* Prose descendant styles for Docs pages. Targets descendants because the
@@ -121,3 +314,13 @@ code {
     @apply text-primary;
   }
 }
+/* Shared by every surface renderMarkdown writes into: the chat card, the
+   timeline, and the saved-run transcript. Layout only. Colour, padding and
+   alignment come from the classes the renderer emits, which know which
+   surface they are on. An earlier version of this block set colours and table
+   padding here, to compensate for the renderer always emitting light-surface
+   tokens, and in doing so overrode the right-alignment on numeric columns. */
+.fred-prose > :first-child { margin-top: 0; }
+.fred-prose > :last-child { margin-bottom: 0; }
+.fred-prose p { margin: 0 0 0.6em; }
+.fred-prose li { margin: 0.15em 0; }

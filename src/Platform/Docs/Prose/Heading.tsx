@@ -17,12 +17,12 @@ export function Heading({ id, level, children }: HeadingProps) {
   return (
     <Tag
       id={id}
-      className={`group relative scroll-mt-20 text-primary ${HEADING_STYLES[level]}`}
+      className={`group relative scroll-mt-24 text-primary ${HEADING_STYLES[level]}`}
     >
       <a
         href={`#${id}`}
         aria-label='Link to this section'
-        className='absolute -left-6 text-base text-tertiary-soft no-underline opacity-0 transition-opacity duration-150 group-hover:opacity-100'
+        className='absolute -left-6 text-base text-secondary-soft no-underline opacity-0 transition-opacity duration-150 group-hover:opacity-100'
       >
         #
       </a>

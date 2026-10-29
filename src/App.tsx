@@ -38,18 +38,18 @@ export default function App() {
   return (
     <BrowserRouter>
       <RouteEffects />
+      {/* The target is the page's own <main>, so the nav stays outside it and
+          keeps its place in a screen reader's landmark list. */}
       <a
         href='#main-content'
-        className='sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-[3000] focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-black'
+        className='sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[3000] focus:rounded-pill focus:bg-primary focus:px-4 focus:py-2 focus:font-mono focus:text-mono-label focus:uppercase focus:tracking-[0.04em] focus:text-canvas'
       >
         Skip to content
       </a>
-      <main id='main-content' tabIndex={-1} className='contents'>
-        <Routes>
-          <Route path='/' element={<DocsEntry />} />
-          <Route path='/:slug' element={<DocsPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path='/' element={<DocsEntry />} />
+        <Route path='/:slug' element={<DocsPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }

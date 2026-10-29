@@ -80,6 +80,17 @@ The design tokens in `tailwind.config.js` and the `.fred-doc-prose` layer in
 identical to the rest of the site. **They are copies, not a shared package** —
 changing a token here does not change it there.
 
+Both are kept byte for byte, so anything only the docs need (their entrance
+and pop-in animations, the lede rule) lives in `src/docs.css` instead.
+
+The colour tokens resolve through CSS variables, so the site has a light theme
+as well as the dark one. It follows `prefers-color-scheme` until the visitor
+uses the toggle in the nav, then remembers the choice in `localStorage` under
+`fred_landing_theme`, the same key biofred.us uses (storage is per origin, so
+the two sites remember separately). An inline script in `public/index.html`
+sets `data-landing-theme='light'` on `<html>` before first paint, and every
+prerendered page inherits it from that template.
+
 `npm run check:design` compares both files against the product repo and fails
 if they have diverged. CI runs it on every pull request.
 

@@ -19,15 +19,15 @@ export function CodeBlock({ lang, code, filename }: CodeBlockProps) {
   const tokens = highlight(code, lang);
 
   return (
-    <div className='relative my-5 overflow-hidden rounded-btn border border-edge-soft bg-[rgba(8,14,8,0.7)]'>
+    <div className='relative my-6 overflow-hidden rounded-tile border border-edge-soft bg-canvas-deep/70'>
       <div className='flex items-center justify-between border-b border-edge-soft px-3.5 py-2 font-mono text-[11px]'>
-        <span className='tracking-[0.06em] text-tertiary-soft'>
+        <span className='tracking-[0.06em] text-secondary-soft'>
           {filename ? `${filename}` : lang}
         </span>
         <button
           onClick={copy}
-          className={`cursor-pointer rounded-btn border-none bg-transparent px-1.5 py-0.5 font-mono text-[11px] transition-colors ${
-            copied ? 'text-accent' : 'text-tertiary-soft hover:text-primary'
+          className={`cursor-pointer rounded-pill border-none bg-transparent px-1.5 py-0.5 font-mono text-[11px] transition-colors ${
+            copied ? 'text-accent' : 'text-secondary-soft hover:text-primary'
           }`}
         >
           {copied ? '✓ copied' : 'copy'}
@@ -41,5 +41,5 @@ export function CodeBlock({ lang, code, filename }: CodeBlockProps) {
 }
 
 // Tiny per-language syntax highlighter. Emits raw HTML with inline style
-// attributes because the output is consumed by dangerouslySetInnerHTML —
+// attributes because the output is consumed by dangerouslySetInnerHTML:
 // Tailwind classes wouldn't be picked up by the JIT here.

@@ -1,0 +1,48 @@
+/* Docs-only styles. index.css and tailwind.config.js are copies of the ones in
+   eight-west/fred and check-design-drift compares them byte for byte, so
+   anything this site adds lives here instead. */
+
+/* Entrances are opacity and a short rise only. The element is in the DOM and
+   laid out from the first frame; only its paint waits. */
+.docs-rise {
+  animation: docs-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes docs-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.docs-pop {
+  animation: docs-pop 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes docs-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.985);
+  }
+}
+
+.docs-fade {
+  animation: docs-fade 200ms ease-out both;
+}
+@keyframes docs-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .docs-rise,
+  .docs-pop,
+  .docs-fade {
+    animation: none;
+  }
+}
+
+/* .fred-doc-prose p outranks any utility on the lede, the same fight the crumb
+   and pager classes in index.css exist to win. */
+.fred-doc-prose .fred-lede {
+  @apply m-0 max-w-[62ch] text-lead leading-body tracking-brand text-secondary;
+}
