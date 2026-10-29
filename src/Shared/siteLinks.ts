@@ -1,30 +1,22 @@
 import {
-  MAIN_SITE,
-  URL_BLOG,
   URL_CAREERS,
   URL_COOKIE_SETTINGS,
+  URL_HOME,
   URL_PRIVACY,
   URL_TERMS,
   URL_VALUES
 } from '../Resources/Constants';
 
-// Mirrors Landing/data/navLinks.ts in eight-west/fred.
-// Those use landing-relative anchors; from this origin every one of them has
-// to name biofred.us, except the docs link, which is this site.
-const DOCS_HOME = '/introduction';
-
 export type SiteLink = { label: string; href: string; current?: boolean };
 
+// Smaller than the landing nav on purpose: a reader here came to look
+// something up, and the rest of biofred.us is one click past Home.
 export const NAV_LINKS: SiteLink[] = [
-  { label: 'How it works', href: `${MAIN_SITE}/#run` },
-  { label: 'Platform', href: `${MAIN_SITE}/#platform` },
-  { label: 'Research', href: `${MAIN_SITE}/#research` },
-  { label: 'Docs', href: DOCS_HOME, current: true },
-  { label: 'Blog', href: URL_BLOG }
+  { label: 'Home', href: URL_HOME },
+  { label: 'Docs', href: '/introduction', current: true }
 ];
 
-// The nav already carries the product links, so the footer keeps only what
-// the nav does not.
+// The org links, which the nav does not carry.
 export const FOOTER_LINKS: SiteLink[] = [
   { label: 'Values', href: URL_VALUES },
   { label: 'Careers', href: URL_CAREERS },
