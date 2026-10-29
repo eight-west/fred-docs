@@ -3,8 +3,7 @@ import { describe, it } from 'node:test';
 import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { docsBody, docsJsonLd } from './docs.mjs';
-import { escapeHtml } from './renderHtml.mjs';
+import { docsJsonLd } from './docs.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PAGES = JSON.parse(
@@ -18,31 +17,27 @@ const page = {
   description: 'Where to put a plant.'
 };
 
-describe('docsBody', () => {
-  it('renders the label as the heading and the description as prose', () => {
-    assert.equal(
-      docsBody(page, escapeHtml),
-      '<div class="docs-stub"><h1>Facility siting</h1><p>Where to put a plant.</p></div>'
-    );
-  });
-
-  it('escapes metadata rather than trusting it', () => {
-    const out = docsBody(
-      { label: '<script>x</script>', description: 'a & b' },
-      escapeHtml
-    );
-    assert.ok(!out.includes('<script>'));
-    assert.ok(out.includes('a &amp; b'));
-  });
-});
-
 describe('docsJsonLd', () => {
+  const url = 'https://docs.biofred.us/facility-siting/';
+  const graph = docsJsonLd(page, url, 'https://docs.biofred.us')['@graph'];
+  const node = type => graph.find(n => n['@type'] === type);
+
   it('describes the page as a technical article', () => {
-    const ld = docsJsonLd(page, 'https://biofred.us/docs/facility-siting', 'https://biofred.us');
-    assert.equal(ld['@type'], 'TechArticle');
-    assert.equal(ld.headline, 'Facility siting');
-    assert.equal(ld.articleSection, 'Capabilities');
-    assert.equal(ld.mainEntityOfPage['@id'], 'https://biofred.us/docs/facility-siting');
+    const article = node('TechArticle');
+    assert.equal(article.headline, 'Facility siting');
+    assert.equal(article.articleSection, 'Capabilities');
+    assert.equal(article.mainEntityOfPage['@id'], url);
+  });
+
+  it('credits 8W Research, the same organisation biofred.us names', () => {
+    const org = node('Organization');
+    assert.equal(org.name, '8W Research');
+    assert.equal(node('TechArticle').publisher['@id'], org['@id']);
+    assert.equal(org['@id'], 'https://biofred.us/#organization');
+  });
+
+  it('ends its breadcrumb on the page itself', () => {
+    assert.equal(node('BreadcrumbList').itemListElement.at(-1).item, url);
   });
 });
 
