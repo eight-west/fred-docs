@@ -22,7 +22,7 @@ describe('docsBody', () => {
   it('renders the label as the heading and the description as prose', () => {
     assert.equal(
       docsBody(page, escapeHtml),
-      '<h1>Facility siting</h1><p>Where to put a plant.</p>'
+      '<div class="docs-stub"><h1>Facility siting</h1><p>Where to put a plant.</p></div>'
     );
   });
 

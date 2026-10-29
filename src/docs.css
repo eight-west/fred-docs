@@ -2,6 +2,35 @@
    eight-west/fred and check-design-drift compares them byte for byte, so
    anything this site adds lives here instead. */
 
+/* The app's wrappers paint the canvas, but nothing did before React mounted,
+   so every load opened on a white frame. This stylesheet is linked in <head>
+   and the theme attribute is set before paint, so the first frame is already
+   the right colour in either theme. */
+html,
+body {
+  @apply bg-canvas text-primary;
+}
+
+/* The prerendered heading and summary, there for crawlers. A normal load
+   replaces them within a second, so they wait that long before showing; a
+   slow or failed bundle still leaves a readable, on-theme page. The delay is
+   not motion, so reduced motion keeps it. */
+.docs-stub {
+  @apply mx-auto max-w-content px-5 pt-s59 md:px-8;
+  animation: docs-stub-wait 1ms 1.2s both;
+}
+.docs-stub h1 {
+  @apply m-0 mb-s21 text-[34px] font-normal leading-heading tracking-brand text-primary md:text-[44px];
+}
+.docs-stub p {
+  @apply m-0 max-w-[62ch] text-lead leading-body tracking-brand text-secondary;
+}
+@keyframes docs-stub-wait {
+  from {
+    opacity: 0;
+  }
+}
+
 /* Entrances are opacity and a short rise only. The element is in the DOM and
    laid out from the first frame; only its paint waits. */
 .docs-rise {
