@@ -7,12 +7,13 @@ export function useScrollSpy(ids: string[]): string {
     if (ids.length === 0) return;
     setActive(ids[0]);
 
+    // Measured against the viewport, not offsetTop: a positioned ancestor
+    // would make offsetTop relative to it rather than to the document.
     function onScroll() {
-      const scrollY = window.scrollY + 160;
       let current = ids[0];
       for (const id of ids) {
         const el = document.getElementById(id);
-        if (el && el.offsetTop <= scrollY) current = id;
+        if (el && el.getBoundingClientRect().top <= 160) current = id;
       }
       setActive(current);
     }

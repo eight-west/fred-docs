@@ -8,7 +8,7 @@ type ProseTableProps = {
 
 export function ProseTable({ head, rows }: ProseTableProps) {
   return (
-    <div className='my-5 overflow-x-auto rounded-btn border border-edge-soft'>
+    <div className='my-6 overflow-x-auto rounded-tile border border-edge-soft'>
       <table className='w-full border-collapse text-left'>
         <thead>
           <tr>
@@ -28,7 +28,7 @@ export function ProseTable({ head, rows }: ProseTableProps) {
               key={r}
               className={cn(
                 'border-t border-edge-soft',
-                r % 2 === 0 ? '' : 'bg-[rgba(138,171,135,0.02)]'
+                r % 2 === 0 ? '' : 'bg-surface-tint'
               )}
             >
               {row.map((cell, c) => (
