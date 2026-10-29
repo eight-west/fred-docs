@@ -13,7 +13,7 @@ export type SiteLink = { label: string; href: string; current?: boolean };
 // something up, and the rest of biofred.us is one click past Home.
 export const NAV_LINKS: SiteLink[] = [
   { label: 'Home', href: URL_HOME },
-  { label: 'Docs', href: '/introduction', current: true }
+  { label: 'Docs', href: '/introduction/', current: true }
 ];
 
 // The org links, which the nav does not carry.

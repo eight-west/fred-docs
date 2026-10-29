@@ -16,7 +16,7 @@ describe('PageTitle', () => {
     renderTitle();
     expect(screen.getByRole('link', { name: 'DOCS' })).toHaveAttribute(
       'href',
-      '/introduction'
+      '/introduction/'
     );
   });
 

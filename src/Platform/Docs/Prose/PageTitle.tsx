@@ -13,7 +13,7 @@ export function PageTitle({
   title,
   lede,
   rootLabel = 'DOCS',
-  rootHref = '/introduction'
+  rootHref = '/introduction/'
 }: PageTitleProps) {
   return (
     <header className='mb-s59'>

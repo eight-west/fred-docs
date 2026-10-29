@@ -48,12 +48,12 @@ jobs:
             if [ ! -f "build/$slug/index.html" ]; then echo "missing build/$slug/index.html"; missing=1; fi
           done
           test -f build/sitemap.xml || { echo "missing sitemap.xml"; missing=1; }
+          test -f build/404.html || { echo "missing 404.html"; missing=1; }
           exit $missing
-      # netlify.toml's SPA rule is not applied to a direct CLI deploy, so the
-      # catch-all has to travel with the bundle. Prerendered pages still win:
-      # Netlify serves build/<slug>/index.html before falling through here.
-      - name: Write redirects for direct deploys
-        run: echo '/*  /index.html  200' > build/_redirects
+      # There is deliberately no catch-all rewrite. Every page is prerendered,
+      # so a path with no file is a typo or a dead link, and 404.html answers
+      # it with a real 404. A catch-all answered 200 with the docs shell, and
+      # made every such path a soft 404 in Google's eyes.
       - name: Upload production bundle
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v4

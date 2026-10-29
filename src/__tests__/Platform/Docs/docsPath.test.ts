@@ -7,12 +7,12 @@ import {
 
 describe('docsPath', () => {
   it('builds a path at the root', () => {
-    expect(docsPath('facility-siting')).toBe('/facility-siting');
+    expect(docsPath('facility-siting')).toBe('/facility-siting/');
   });
 
   it('addresses every registered page', () => {
     for (const page of PAGES) {
-      expect(docsPath(page.slug)).toBe(`/${page.slug}`);
+      expect(docsPath(page.slug)).toBe(`/${page.slug}/`);
     }
   });
 });
