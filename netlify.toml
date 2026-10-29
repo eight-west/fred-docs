@@ -7,12 +7,8 @@
 [build.environment]
   CI = "false"
 
-# Serve the prerendered <slug>/index.html directly instead of 301-ing to the
-# trailing-slash form on every page.
+# Production never reads this file: CI deploys the bundle with the Netlify
+# CLI from a job with no checkout. There, /<slug> still 301s to /<slug>/,
+# which is why docsPath and the canonicals use the slashed form.
 [build.processing.html]
   pretty_urls = false
-
-[[redirects]]
-  from   = "/*"
-  to     = "/index.html"
-  status = 200
