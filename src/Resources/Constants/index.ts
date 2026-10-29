@@ -4,7 +4,6 @@ export const SITE_ORIGIN = 'https://docs.biofred.us';
 export const MAIN_SITE = 'https://biofred.us';
 
 export const URL_HOME = `${MAIN_SITE}/`;
-export const URL_BLOG = `${MAIN_SITE}/blog`;
 export const URL_LOGIN = `${MAIN_SITE}/login`;
 export const URL_VALUES = `${MAIN_SITE}/values`;
 export const URL_CAREERS = `${MAIN_SITE}/careers`;

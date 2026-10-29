@@ -5,9 +5,9 @@ import { URL_HOME, URL_LOGIN } from '../Resources/Constants';
 import { BetaBadge } from './BetaBadge';
 import { NAV_LINKS } from './siteLinks';
 
-// A faithful copy of SiteNav's solid variant in eight-west/fred. The docs
-// cannot read the product's session, so the button always offers sign in;
-// the app sends a signed-in visitor on to their dashboard.
+// SiteNav's solid variant from eight-west/fred, carrying the docs' shorter
+// link list. The docs cannot read the product's session, so the button always
+// offers sign in; the app sends a signed-in visitor on to their dashboard.
 type SiteNavProps = {
   search?: ReactNode;
   themeToggle?: ReactNode;
@@ -41,7 +41,7 @@ export function SiteNav({ search, themeToggle }: SiteNavProps) {
         </a>
 
         <div className='flex items-center gap-2 md:gap-s21'>
-          <div className='hidden items-center gap-6 lg:flex'>
+          <div className='hidden items-center gap-6 sm:flex'>
             {NAV_LINKS.map(l => (
               <a
                 key={l.label}
@@ -69,7 +69,7 @@ export function SiteNav({ search, themeToggle }: SiteNavProps) {
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen(o => !o)}
-            className='-mr-2 inline-flex min-h-[40px] shrink-0 items-center gap-2 rounded-pill px-2 font-mono text-mono-label uppercase tracking-[0.04em] text-primary lg:hidden'
+            className='-mr-2 inline-flex min-h-[40px] shrink-0 items-center gap-2 rounded-pill px-2 font-mono text-mono-label uppercase tracking-[0.04em] text-primary sm:hidden'
           >
             <svg
               aria-hidden='true'
@@ -95,7 +95,7 @@ export function SiteNav({ search, themeToggle }: SiteNavProps) {
       {open && (
         <div
           id={menuId}
-          className='border-y border-edge bg-canvas px-5 pb-s21 pt-s7 lg:hidden'
+          className='border-y border-edge bg-canvas px-5 pb-s21 pt-s7 sm:hidden'
         >
           <ul className='m-0 flex list-none flex-col p-0'>
             {NAV_LINKS.map(l => (
